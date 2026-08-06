@@ -1,0 +1,643 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06A6042B9624E04C07877687 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40612F76CE65800E60AFB595 /* Foundation.framework */; };
+		12A835F0F584CA7B27A74E0B /* LifeStageBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C758311071E918AE9CE979 /* LifeStageBarView.swift */; };
+		1B945568EFC763D919B32536 /* CategoryRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEC110372E655A1A561D0E6 /* CategoryRating.swift */; };
+		29CDD7CC0EF4035A16772058 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12308EFABEB2B120C58AF33 /* Constants.swift */; };
+		36F9E8CA179CD4449D89FEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9950C41B4EDFC433F2B940CA /* Assets.xcassets */; };
+		3B15E8C57699CA13021E4DED /* WeekCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FB0C913823E3F4F4025B1 /* WeekCalculatorTests.swift */; };
+		3D1FD1B8338812E0C425A7EE /* LifeInWeeksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139FE2848809098EDF5BD73E /* LifeInWeeksApp.swift */; };
+		3DB6FB2FC9FB8DFC73D26836 /* GridGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD360A4BAD4BC5DAD4F749 /* GridGenerationView.swift */; };
+		3EF80AD25FAB1360EC451786 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15172FF25C60BE35788AFB8D /* SplashView.swift */; };
+		40A3718C703A4914163CDE3A /* GenerateWallpaperIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3751A1ACCA12CB722E48D /* GenerateWallpaperIntent.swift */; };
+		495C00F010A82CEB35E58189 /* CategorySetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A6FD53601DE0965A731F9E /* CategorySetupView.swift */; };
+		4B6908A2EA4A22DA0DDFC667 /* ColorResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB8AF2B9F4883FDC6DFEE8 /* ColorResolverTests.swift */; };
+		5B73F64B222B7134D2696028 /* WeekDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CCDD3C6D871F5500AEFD80 /* WeekDetailViewModel.swift */; };
+		7A2D5C0B734CD08A4C4073FA /* WeekDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAED15BAD6514E40BF7EFE3A /* WeekDetailSheet.swift */; };
+		88A9EF5870ABD206E58DDFE1 /* WeekCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F193A43A20A1FC9EECCAAF83 /* WeekCalculator.swift */; };
+		8D0344E56877C5A58860E86C /* ColorResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDEADDA8E15B44461C2FB94 /* ColorResolver.swift */; };
+		9B456EC80265CB66125C6A9E /* WallpaperRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4025A8F11C8DB067E48BCD3 /* WallpaperRenderer.swift */; };
+		A44F78E6A1460BA978F8DEBE /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED13B38DC56AFA6452BC5B9 /* StatsViewModel.swift */; };
+		B6777D39B8E152275E2A5626 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D459F7BDF9065FEF6CA689 /* GridViewModel.swift */; };
+		B90FDB9880D115A3FAD32520 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40612F76CE65800E60AFB595 /* Foundation.framework */; };
+		BF58C0785D26E5AFD88F015C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DB53497A876B99FFA13F /* Category.swift */; };
+		C1D89F493872843B9254CABD /* BirthDateInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECDCE913BD6491CFC45DDA /* BirthDateInputView.swift */; };
+		C302423706D14C96E2DD8B11 /* DotGridCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCCF47BAFF574D7160175C /* DotGridCanvas.swift */; };
+		C752FF418C45058B77D5778A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D159D6C10449CB4CD9C292 /* SettingsView.swift */; };
+		C9FDC1F3919CD6AD0E2B3D50 /* SwiftDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E439B63E1DB957D991E30EB /* SwiftDataRepository.swift */; };
+		D0886C7238CE5A06CE79EF2F /* WeekRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7517545C01A6ECD07086F58 /* WeekRecord.swift */; };
+		D3CF35E481983E8AEC4C8E9B /* WallpaperGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FACADE241BE7164C842112 /* WallpaperGuideView.swift */; };
+		E5B4C053E899453895B8217E /* LifeStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B75DFF96CD430599C748C /* LifeStage.swift */; };
+		EDFD6D1EF65F4D4EA8A78154 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444AADFAE8D646736F6B9CAD /* UserProfile.swift */; };
+		EEA1516AE8FCD2C47D1A4908 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA762968C656D1766AECFE01 /* RepositoryProtocol.swift */; };
+		F13D5221DED6DDA398B09D5A /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746FAAEA579441CADB74B81D /* GridView.swift */; };
+		F6C659772C1F91889D9AB088 /* StatsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E1B67F3EFE9CDD3347A8B /* StatsSheet.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E4069309EFEF028923603E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1551C0464AA22ED5B8C40120 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 853ECBCACD9E4D788DB6D28B;
+			remoteInfo = LifeInWeeks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10D459F7BDF9065FEF6CA689 /* GridViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GridViewModel.swift; path = ViewModels/GridViewModel.swift; sourceTree = "<group>"; };
+		139FE2848809098EDF5BD73E /* LifeInWeeksApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LifeInWeeksApp.swift; path = App/LifeInWeeksApp.swift; sourceTree = "<group>"; };
+		15172FF25C60BE35788AFB8D /* SplashView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SplashView.swift; path = Views/Onboarding/SplashView.swift; sourceTree = "<group>"; };
+		18CCDD3C6D871F5500AEFD80 /* WeekDetailViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekDetailViewModel.swift; path = ViewModels/WeekDetailViewModel.swift; sourceTree = "<group>"; };
+		18F3751A1ACCA12CB722E48D /* GenerateWallpaperIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GenerateWallpaperIntent.swift; path = AppIntents/GenerateWallpaperIntent.swift; sourceTree = "<group>"; };
+		2EDEADDA8E15B44461C2FB94 /* ColorResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorResolver.swift; path = Utilities/ColorResolver.swift; sourceTree = "<group>"; };
+		31DD360A4BAD4BC5DAD4F749 /* GridGenerationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GridGenerationView.swift; path = Views/Onboarding/GridGenerationView.swift; sourceTree = "<group>"; };
+		341DBDCA3294AE5C42A148A2 /* LifeInWeeksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeInWeeksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40612F76CE65800E60AFB595 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		444AADFAE8D646736F6B9CAD /* UserProfile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = Models/UserProfile.swift; sourceTree = "<group>"; };
+		4BE3DB53497A876B99FFA13F /* Category.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Models/Category.swift; sourceTree = "<group>"; };
+		50FACADE241BE7164C842112 /* WallpaperGuideView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WallpaperGuideView.swift; path = Views/Onboarding/WallpaperGuideView.swift; sourceTree = "<group>"; };
+		54A6FD53601DE0965A731F9E /* CategorySetupView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CategorySetupView.swift; path = Views/Onboarding/CategorySetupView.swift; sourceTree = "<group>"; };
+		5E5FB0C913823E3F4F4025B1 /* WeekCalculatorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekCalculatorTests.swift; path = Tests/WeekCalculatorTests.swift; sourceTree = "<group>"; };
+		746FAAEA579441CADB74B81D /* GridView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = Views/Grid/GridView.swift; sourceTree = "<group>"; };
+		849B75DFF96CD430599C748C /* LifeStage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LifeStage.swift; path = Models/LifeStage.swift; sourceTree = "<group>"; };
+		84C758311071E918AE9CE979 /* LifeStageBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LifeStageBarView.swift; path = Views/Grid/LifeStageBarView.swift; sourceTree = "<group>"; };
+		8C8E1B67F3EFE9CDD3347A8B /* StatsSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatsSheet.swift; path = Views/Stats/StatsSheet.swift; sourceTree = "<group>"; };
+		8DD33721C0B36E6B5BC9AF41 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = SupportingFiles/Info.plist; sourceTree = "<group>"; };
+		9950C41B4EDFC433F2B940CA /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E439B63E1DB957D991E30EB /* SwiftDataRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftDataRepository.swift; path = Repositories/SwiftDataRepository.swift; sourceTree = "<group>"; };
+		AEEC110372E655A1A561D0E6 /* CategoryRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CategoryRating.swift; path = Models/CategoryRating.swift; sourceTree = "<group>"; };
+		B5520FD0A2024E055260FC55 /* LifeInWeeks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeInWeeks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA762968C656D1766AECFE01 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RepositoryProtocol.swift; path = Repositories/RepositoryProtocol.swift; sourceTree = "<group>"; };
+		CEECDCE913BD6491CFC45DDA /* BirthDateInputView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BirthDateInputView.swift; path = Views/Onboarding/BirthDateInputView.swift; sourceTree = "<group>"; };
+		D4025A8F11C8DB067E48BCD3 /* WallpaperRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WallpaperRenderer.swift; path = Utilities/WallpaperRenderer.swift; sourceTree = "<group>"; };
+		DABCCF47BAFF574D7160175C /* DotGridCanvas.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DotGridCanvas.swift; path = Views/Grid/DotGridCanvas.swift; sourceTree = "<group>"; };
+		E12308EFABEB2B120C58AF33 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
+		EAED15BAD6514E40BF7EFE3A /* WeekDetailSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekDetailSheet.swift; path = Views/WeekDetail/WeekDetailSheet.swift; sourceTree = "<group>"; };
+		EED13B38DC56AFA6452BC5B9 /* StatsViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatsViewModel.swift; path = ViewModels/StatsViewModel.swift; sourceTree = "<group>"; };
+		F193A43A20A1FC9EECCAAF83 /* WeekCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekCalculator.swift; path = Utilities/WeekCalculator.swift; sourceTree = "<group>"; };
+		F6D159D6C10449CB4CD9C292 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
+		F7517545C01A6ECD07086F58 /* WeekRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekRecord.swift; path = Models/WeekRecord.swift; sourceTree = "<group>"; };
+		F9FB8AF2B9F4883FDC6DFEE8 /* ColorResolverTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorResolverTests.swift; path = Tests/ColorResolverTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		022357354B1F36ED9E849300 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06A6042B9624E04C07877687 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66ED37E02EFD133963F13298 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B90FDB9880D115A3FAD32520 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0CA04DBA87AF126F40231EAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4BE3DB53497A876B99FFA13F /* Category.swift */,
+				AEEC110372E655A1A561D0E6 /* CategoryRating.swift */,
+				849B75DFF96CD430599C748C /* LifeStage.swift */,
+				444AADFAE8D646736F6B9CAD /* UserProfile.swift */,
+				F7517545C01A6ECD07086F58 /* WeekRecord.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0EE8920F7CAF4C5C7C6F2386 /* LifeInWeeksTests */ = {
+			isa = PBXGroup;
+			children = (
+				F9FB8AF2B9F4883FDC6DFEE8 /* ColorResolverTests.swift */,
+				5E5FB0C913823E3F4F4025B1 /* WeekCalculatorTests.swift */,
+			);
+			name = LifeInWeeksTests;
+			sourceTree = "<group>";
+		};
+		12AD1790F853696CB13359EC = {
+			isa = PBXGroup;
+			children = (
+				B8E6EB3548B00691AB5BA521 /* Products */,
+				E55A47D11F6D0BFAB3643D79 /* Frameworks */,
+				87D859B2A585DEFFF513022C /* LifeInWeeks */,
+				9950C41B4EDFC433F2B940CA /* Assets.xcassets */,
+				0EE8920F7CAF4C5C7C6F2386 /* LifeInWeeksTests */,
+			);
+			sourceTree = "<group>";
+		};
+		2F19FA8A21465D8F925427BC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2EDEADDA8E15B44461C2FB94 /* ColorResolver.swift */,
+				E12308EFABEB2B120C58AF33 /* Constants.swift */,
+				D4025A8F11C8DB067E48BCD3 /* WallpaperRenderer.swift */,
+				F193A43A20A1FC9EECCAAF83 /* WeekCalculator.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		6FF0E2E3D73AC477D650A686 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				8C8E1B67F3EFE9CDD3347A8B /* StatsSheet.swift */,
+			);
+			name = Stats;
+			sourceTree = "<group>";
+		};
+		780B5FE8947C8BC926C14F56 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				139FE2848809098EDF5BD73E /* LifeInWeeksApp.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		7AC4C0C40A37EC2C6E88A419 /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				18F3751A1ACCA12CB722E48D /* GenerateWallpaperIntent.swift */,
+			);
+			name = AppIntents;
+			sourceTree = "<group>";
+		};
+		87D859B2A585DEFFF513022C /* LifeInWeeks */ = {
+			isa = PBXGroup;
+			children = (
+				780B5FE8947C8BC926C14F56 /* App */,
+				0CA04DBA87AF126F40231EAD /* Models */,
+				C49F024CB3B153425B4BACAF /* Repositories */,
+				EBE79F3BBE2DC1D901F6B01A /* ViewModels */,
+				A20527DE9DA4FDE52D4C6418 /* Grid */,
+				E80B66B3CDA0E465D49F9187 /* WeekDetail */,
+				6FF0E2E3D73AC477D650A686 /* Stats */,
+				B7C06610E9BB8C95502B2251 /* Settings */,
+				A1173E083620E9EF263ABF5B /* Onboarding */,
+				7AC4C0C40A37EC2C6E88A419 /* AppIntents */,
+				2F19FA8A21465D8F925427BC /* Utilities */,
+				8E4DC0C8B227CD82AED12A9A /* SupportingFiles */,
+			);
+			name = LifeInWeeks;
+			sourceTree = "<group>";
+		};
+		8E4DC0C8B227CD82AED12A9A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8DD33721C0B36E6B5BC9AF41 /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A1173E083620E9EF263ABF5B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CEECDCE913BD6491CFC45DDA /* BirthDateInputView.swift */,
+				54A6FD53601DE0965A731F9E /* CategorySetupView.swift */,
+				31DD360A4BAD4BC5DAD4F749 /* GridGenerationView.swift */,
+				15172FF25C60BE35788AFB8D /* SplashView.swift */,
+				50FACADE241BE7164C842112 /* WallpaperGuideView.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		A20527DE9DA4FDE52D4C6418 /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				DABCCF47BAFF574D7160175C /* DotGridCanvas.swift */,
+				746FAAEA579441CADB74B81D /* GridView.swift */,
+				84C758311071E918AE9CE979 /* LifeStageBarView.swift */,
+			);
+			name = Grid;
+			sourceTree = "<group>";
+		};
+		B7C06610E9BB8C95502B2251 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F6D159D6C10449CB4CD9C292 /* SettingsView.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		B8E6EB3548B00691AB5BA521 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5520FD0A2024E055260FC55 /* LifeInWeeks.app */,
+				341DBDCA3294AE5C42A148A2 /* LifeInWeeksTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C49F024CB3B153425B4BACAF /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				BA762968C656D1766AECFE01 /* RepositoryProtocol.swift */,
+				9E439B63E1DB957D991E30EB /* SwiftDataRepository.swift */,
+			);
+			name = Repositories;
+			sourceTree = "<group>";
+		};
+		E55A47D11F6D0BFAB3643D79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F72E2D62CC4C4D09992EE5B9 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E80B66B3CDA0E465D49F9187 /* WeekDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EAED15BAD6514E40BF7EFE3A /* WeekDetailSheet.swift */,
+			);
+			name = WeekDetail;
+			sourceTree = "<group>";
+		};
+		EBE79F3BBE2DC1D901F6B01A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				10D459F7BDF9065FEF6CA689 /* GridViewModel.swift */,
+				EED13B38DC56AFA6452BC5B9 /* StatsViewModel.swift */,
+				18CCDD3C6D871F5500AEFD80 /* WeekDetailViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		F72E2D62CC4C4D09992EE5B9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				40612F76CE65800E60AFB595 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50DD540949A64F0A77EB7258 /* LifeInWeeksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CDDEC9C7D73E537EC13A174 /* Build configuration list for PBXNativeTarget "LifeInWeeksTests" */;
+			buildPhases = (
+				A93D17A26A9A85CCFDE1033C /* Sources */,
+				022357354B1F36ED9E849300 /* Frameworks */,
+				B9D8BD3327F5D6B076B4F5F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFEEC3187C8B75F9BC1B0F5A /* PBXTargetDependency */,
+			);
+			name = LifeInWeeksTests;
+			productName = LifeInWeeksTests;
+			productReference = 341DBDCA3294AE5C42A148A2 /* LifeInWeeksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		853ECBCACD9E4D788DB6D28B /* LifeInWeeks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8ECCC3C3FC28DBC9A3BA9EFB /* Build configuration list for PBXNativeTarget "LifeInWeeks" */;
+			buildPhases = (
+				9308F549D7186A2D8F225910 /* Sources */,
+				66ED37E02EFD133963F13298 /* Frameworks */,
+				7FE9D1866391DB9B7847ECB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LifeInWeeks;
+			productName = LifeInWeeks;
+			productReference = B5520FD0A2024E055260FC55 /* LifeInWeeks.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1551C0464AA22ED5B8C40120 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 965269044F2757364B27BE67 /* Build configuration list for PBXProject "LifeInWeeks" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 12AD1790F853696CB13359EC;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 100;
+			productRefGroup = B8E6EB3548B00691AB5BA521 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				853ECBCACD9E4D788DB6D28B /* LifeInWeeks */,
+				50DD540949A64F0A77EB7258 /* LifeInWeeksTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7FE9D1866391DB9B7847ECB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36F9E8CA179CD4449D89FEE2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9D8BD3327F5D6B076B4F5F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9308F549D7186A2D8F225910 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D1FD1B8338812E0C425A7EE /* LifeInWeeksApp.swift in Sources */,
+				BF58C0785D26E5AFD88F015C /* Category.swift in Sources */,
+				1B945568EFC763D919B32536 /* CategoryRating.swift in Sources */,
+				E5B4C053E899453895B8217E /* LifeStage.swift in Sources */,
+				EDFD6D1EF65F4D4EA8A78154 /* UserProfile.swift in Sources */,
+				D0886C7238CE5A06CE79EF2F /* WeekRecord.swift in Sources */,
+				EEA1516AE8FCD2C47D1A4908 /* RepositoryProtocol.swift in Sources */,
+				C9FDC1F3919CD6AD0E2B3D50 /* SwiftDataRepository.swift in Sources */,
+				B6777D39B8E152275E2A5626 /* GridViewModel.swift in Sources */,
+				A44F78E6A1460BA978F8DEBE /* StatsViewModel.swift in Sources */,
+				5B73F64B222B7134D2696028 /* WeekDetailViewModel.swift in Sources */,
+				C302423706D14C96E2DD8B11 /* DotGridCanvas.swift in Sources */,
+				F13D5221DED6DDA398B09D5A /* GridView.swift in Sources */,
+				12A835F0F584CA7B27A74E0B /* LifeStageBarView.swift in Sources */,
+				7A2D5C0B734CD08A4C4073FA /* WeekDetailSheet.swift in Sources */,
+				F6C659772C1F91889D9AB088 /* StatsSheet.swift in Sources */,
+				C752FF418C45058B77D5778A /* SettingsView.swift in Sources */,
+				C1D89F493872843B9254CABD /* BirthDateInputView.swift in Sources */,
+				495C00F010A82CEB35E58189 /* CategorySetupView.swift in Sources */,
+				3DB6FB2FC9FB8DFC73D26836 /* GridGenerationView.swift in Sources */,
+				3EF80AD25FAB1360EC451786 /* SplashView.swift in Sources */,
+				D3CF35E481983E8AEC4C8E9B /* WallpaperGuideView.swift in Sources */,
+				40A3718C703A4914163CDE3A /* GenerateWallpaperIntent.swift in Sources */,
+				8D0344E56877C5A58860E86C /* ColorResolver.swift in Sources */,
+				29CDD7CC0EF4035A16772058 /* Constants.swift in Sources */,
+				9B456EC80265CB66125C6A9E /* WallpaperRenderer.swift in Sources */,
+				88A9EF5870ABD206E58DDFE1 /* WeekCalculator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A93D17A26A9A85CCFDE1033C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6908A2EA4A22DA0DDFC667 /* ColorResolverTests.swift in Sources */,
+				3B15E8C57699CA13021E4DED /* WeekCalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BFEEC3187C8B75F9BC1B0F5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LifeInWeeks;
+			target = 853ECBCACD9E4D788DB6D28B /* LifeInWeeks */;
+			targetProxy = 5E4069309EFEF028923603E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		33082B19A860CCE7553A2408 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shogo.4420life.debug;
+				SDKROOT = iphoneos;
+				SRCROOT = "/Users/satoushougo/ai-secretary/projects/life-shortness-visualizer/40_src";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		52514A5D7074B13C5543C6AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9533F3C73514B41A771C8293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shogo.4420life;
+				SDKROOT = iphoneos;
+				SRCROOT = "/Users/satoushougo/ai-secretary/projects/life-shortness-visualizer/40_src";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C788B9DB9E17004E3C427B18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LifeInWeeks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LifeInWeeks";
+			};
+			name = Debug;
+		};
+		CB809A2874E2EEC6A3246034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LifeInWeeks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LifeInWeeks";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E3985AF2946C3BE18E741A4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CDDEC9C7D73E537EC13A174 /* Build configuration list for PBXNativeTarget "LifeInWeeksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB809A2874E2EEC6A3246034 /* Release */,
+				C788B9DB9E17004E3C427B18 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8ECCC3C3FC28DBC9A3BA9EFB /* Build configuration list for PBXNativeTarget "LifeInWeeks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9533F3C73514B41A771C8293 /* Release */,
+				33082B19A860CCE7553A2408 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		965269044F2757364B27BE67 /* Build configuration list for PBXProject "LifeInWeeks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3985AF2946C3BE18E741A4C /* Debug */,
+				52514A5D7074B13C5543C6AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1551C0464AA22ED5B8C40120 /* Project object */;
+}
