@@ -83,7 +83,7 @@ struct BirthDateInputView: View {
                         }
                     }
 
-                    Text("残り \(remainingWeeks.formatted()) 週")
+                    Text("残り \(remainingWeeks) 週")
                         .font(.subheadline)
                         .foregroundStyle(Color.yellow.opacity(0.8))
                         .contentTransition(.numericText())

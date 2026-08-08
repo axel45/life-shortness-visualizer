@@ -10,6 +10,7 @@ struct DotGridCanvas: View {
     let weekRecordMap: [Int: WeekRecord]
     let centeredLayout: Bool
     var onTap: ((Int) -> Void)?
+    var onSwipe: ((Int) -> Void)?
 
     private var cellSize: CGFloat { dotSize + dotSpacing }
 
@@ -54,6 +55,19 @@ struct DotGridCanvas: View {
                         guard row >= 0, row < rows, col >= 0, col < columns else { return }
                         handler(WeekCalculator.lifeWeekIndex(row: row, col: col))
                     }
+                }
+            )
+            .gesture(
+                onSwipe.map { handler in
+                    DragGesture(minimumDistance: 20)
+                        .onEnded { value in
+                            guard abs(value.translation.width) > abs(value.translation.height) else { return }
+                            guard let current = selectedLifeWeekIndex else { return }
+                            let delta = value.translation.width < 0 ? 1 : -1
+                            let next = current + delta
+                            guard next >= 0 && next < rows * columns else { return }
+                            handler(next)
+                        }
                 }
             )
         }

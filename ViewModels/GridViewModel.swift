@@ -51,14 +51,34 @@ final class GridViewModel {
         return lifeStages.first { $0.startAge <= age && age < $0.endAge }
     }
 
-    func selectWeek(_ lifeWeekIndex: Int) {
+    /// Selects a week (shows yellow ring) without opening the edit sheet.
+    func selectWeekOnly(_ lifeWeekIndex: Int) {
+        // Future weeks are non-selectable (Fix 14)
+        guard lifeWeekIndex <= currentLifeWeekIndex else { return }
         selectedLifeWeekIndex = lifeWeekIndex
+    }
+
+    /// Opens the edit sheet for the currently selected week.
+    func openWeekDetail() {
+        guard selectedLifeWeekIndex <= currentLifeWeekIndex else { return }
         isWeekDetailPresented = true
     }
 
     func selectCurrentWeek() {
         selectedLifeWeekIndex = currentLifeWeekIndex
         isWeekDetailPresented = true
+    }
+
+    /// Reload week records after a save in WeekDetailSheet (Fix 15).
+    func reloadAfterSave() {
+        Task {
+            do {
+                weekRecords = try await repository.fetchWeekRecords()
+                weekRecordMap = Dictionary(uniqueKeysWithValues: weekRecords.map { ($0.lifeWeekIndex, $0) })
+            } catch {
+                errorMessage = "データの更新に失敗しました"
+            }
+        }
     }
 
     func loadData() async {

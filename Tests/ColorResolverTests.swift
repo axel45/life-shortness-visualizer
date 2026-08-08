@@ -1,13 +1,13 @@
 import Testing
 
 // DotColorロジックをスタンドアロン定義
-private enum DotColor: Equatable { case future, gray, white, silver, gold }
+private enum DotColor: Equatable { case future, unrecorded, lowRating, gray, white, silver, gold }
 
 private func dotColor(averageStars: Double?, isFuture: Bool) -> DotColor {
     if isFuture { return .future }
-    guard let avg = averageStars else { return .gray }
+    guard let avg = averageStars else { return .unrecorded }
     switch avg {
-    case ..<3.0:      return .gray
+    case ..<3.0:      return .lowRating
     case 3.0..<4.0:   return .white
     case 4.0..<5.0:   return .silver
     default:           return .gold
@@ -23,16 +23,16 @@ struct ColorResolverTests {
         #expect(dotColor(averageStars: 5.0,  isFuture: true) == .future)
     }
 
-    @Test("記録なし（nil）はgray")
+    @Test("記録なし（nil）はunrecorded")
     func noRecord() {
-        #expect(dotColor(averageStars: nil, isFuture: false) == .gray)
+        #expect(dotColor(averageStars: nil, isFuture: false) == .unrecorded)
     }
 
-    @Test("平均3未満はgray")
+    @Test("平均3未満はlowRating")
     func belowThree() {
-        #expect(dotColor(averageStars: 0.0, isFuture: false) == .gray)
-        #expect(dotColor(averageStars: 1.0, isFuture: false) == .gray)
-        #expect(dotColor(averageStars: 2.9, isFuture: false) == .gray)
+        #expect(dotColor(averageStars: 0.0, isFuture: false) == .lowRating)
+        #expect(dotColor(averageStars: 1.0, isFuture: false) == .lowRating)
+        #expect(dotColor(averageStars: 2.9, isFuture: false) == .lowRating)
     }
 
     @Test("平均3以上4未満はwhite")
@@ -54,7 +54,7 @@ struct ColorResolverTests {
         #expect(dotColor(averageStars: 5.0, isFuture: false) == .gold)
     }
 
-    @Test("境界値: 3.0はwhite（gray寄りでない）")
+    @Test("境界値: 3.0はwhite（lowRating寄りでない）")
     func boundaryThree() {
         #expect(dotColor(averageStars: 3.0, isFuture: false) == .white)
     }

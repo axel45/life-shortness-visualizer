@@ -42,6 +42,23 @@ final class WeekDetailViewModel {
         weekRecord?.rating(for: category.id)?.stars ?? 0
     }
 
+    /// Fix 16: Immediately update local UI state (optimistic update) before async save.
+    func setStarsOptimistic(_ stars: Int, for category: Category) {
+        if weekRecord == nil {
+            let newRecord = WeekRecord(lifeWeekIndex: lifeWeekIndex)
+            weekRecord = newRecord
+        }
+        guard let record = weekRecord else { return }
+        if let existing = record.rating(for: category.id) {
+            existing.stars = stars
+            existing.updatedAt = Date()
+        } else {
+            let rating = CategoryRating(weekRecordId: record.id, categoryId: category.id, stars: stars)
+            rating.weekRecord = record
+            record.ratings.append(rating)
+        }
+    }
+
     func setStars(_ stars: Int, for category: Category) async {
         do {
             if weekRecord == nil {

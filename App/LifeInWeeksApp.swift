@@ -61,7 +61,7 @@ struct RootView: View {
                 birthDate: onboardingBirthDate,
                 lifeExpectancy: onboardingLifeExpectancy
             ) {
-                withAnimation(.easeInOut(duration: 0.4)) { onboardingStep = .categorySetup }
+                withAnimation(.easeInOut(duration: 0.4)) { onboardingStep = .wallpaperGuide }
             }
         case .categorySetup:
             CategorySetupView(

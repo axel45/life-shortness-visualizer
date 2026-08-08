@@ -4,13 +4,15 @@ import UIKit
 struct WeekDetailSheet: View {
     let lifeWeekIndex: Int
     let repository: RepositoryProtocol
+    var onSave: (() -> Void)? = nil  // Fix 15: callback to refresh parent grid
 
     @State private var viewModel: WeekDetailViewModel
     @Environment(\.dismiss) private var dismiss
 
-    init(lifeWeekIndex: Int, repository: RepositoryProtocol) {
+    init(lifeWeekIndex: Int, repository: RepositoryProtocol, onSave: (() -> Void)? = nil) {
         self.lifeWeekIndex = lifeWeekIndex
         self.repository = repository
+        self.onSave = onSave
         _viewModel = State(initialValue: WeekDetailViewModel(repository: repository))
     }
 
@@ -41,7 +43,10 @@ struct WeekDetailSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("完了") { dismiss() }
+                    Button("完了") {
+                        dismiss()
+                        onSave?()  // Fix 15: notify parent to reload
+                    }
                 }
             }
         }
@@ -65,6 +70,8 @@ struct WeekDetailSheet: View {
                         currentStars: viewModel.stars(for: category),
                         onStarTap: { stars in
                             UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                            // Fix 16: optimistic update - set stars immediately on main thread
+                            viewModel.setStarsOptimistic(stars, for: category)
                             Task { await viewModel.setStars(stars, for: category) }
                         }
                     )

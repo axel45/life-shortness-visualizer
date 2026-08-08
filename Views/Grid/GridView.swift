@@ -35,6 +35,10 @@ struct GridView: View {
             .padding(.horizontal, 12)
 
             if viewModel.weekRecordMap.isEmpty {
+                // Fix 5: semi-transparent scrim behind hint
+                Color.black.opacity(0.55)
+                    .ignoresSafeArea()
+                    .allowsHitTesting(false)
                 emptyStateOverlay
             }
 
@@ -56,7 +60,8 @@ struct GridView: View {
         .sheet(isPresented: $viewModel.isWeekDetailPresented) {
             WeekDetailSheet(
                 lifeWeekIndex: viewModel.selectedLifeWeekIndex,
-                repository: repository
+                repository: repository,
+                onSave: { viewModel.reloadAfterSave() }
             )
         }
         .sheet(isPresented: $viewModel.isStatsPresented) {
@@ -74,11 +79,13 @@ struct GridView: View {
             selectedLifeWeekIndex: viewModel.selectedLifeWeekIndex,
             weekRecordMap: viewModel.weekRecordMap,
             centeredLayout: false,
-            onTap: { viewModel.selectWeek($0) }
+            onTap: { viewModel.selectWeekOnly($0) },
+            onSwipe: { viewModel.selectWeekOnly($0) }
         )
     }
 
     private var fabButton: some View {
+        // Fix 5: Updated hint text
         Button {
             viewModel.selectCurrentWeek()
         } label: {
@@ -96,19 +103,22 @@ struct GridView: View {
     }
 
     private var emptyStateOverlay: some View {
+        // Fix 5: Updated text and placed above scrim
         VStack(spacing: 8) {
             Image(systemName: "plus.circle")
                 .font(.system(size: 32))
                 .foregroundStyle(Color.yellow.opacity(0.7))
-            Text("FABボタンから今週の記録をつけよう")
+            // Fix 5: Changed hint text
+            Text("＋ボタンを押して今週の記録を入力しよう")
                 .font(.subheadline)
                 .foregroundStyle(Color(white: 0.6))
                 .multilineTextAlignment(.center)
         }
         .padding(24)
-        .background(Color.black.opacity(0.7))
+        .background(Color.black.opacity(0.85))
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .padding(.horizontal, 40)
+        .padding(.bottom, 112)
     }
 
     private var wallpaperBanner: some View {

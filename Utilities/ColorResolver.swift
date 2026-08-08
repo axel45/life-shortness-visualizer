@@ -2,7 +2,9 @@ import SwiftUI
 
 enum DotColor {
     case future
-    case gray
+    case unrecorded
+    case lowRating   // rating 1-2
+    case gray        // kept for backward compatibility (rating < 3 but >= 0 with no specific rating)
     case white
     case silver
     case gold
@@ -11,12 +13,15 @@ enum DotColor {
 enum ColorResolver {
 
     static func dotColor(for weekRecord: WeekRecord?, isFuture: Bool) -> DotColor {
+        // Fix 14: Future weeks use 'future' color (visually dimmed)
         if isFuture { return .future }
-        guard let record = weekRecord else { return .gray }
-        guard let avg = record.averageStars else { return .gray }
+
+        // Fix 4 & Fix 6: distinguish unrecorded from low-rating
+        guard let record = weekRecord else { return .unrecorded }
+        guard let avg = record.averageStars else { return .unrecorded }
 
         switch avg {
-        case ..<3.0: return .gray
+        case ..<3.0: return .lowRating  // Fix 6: rating 1-2 gets distinct color
         case 3.0..<4.0: return .white
         case 4.0..<5.0: return .silver
         default: return .gold
@@ -26,8 +31,16 @@ enum ColorResolver {
     static func color(for dotColor: DotColor) -> (fill: Color, stroke: Color?) {
         switch dotColor {
         case .future:
-            return (fill: Color.black, stroke: Color.white)
+            // Fix 4: light gray #D1D1D6
+            return (fill: Color(hex: "D1D1D6"), stroke: nil)
+        case .unrecorded:
+            // Fix 4: off-white #F2F2F7
+            return (fill: Color(hex: "F2F2F7"), stroke: nil)
+        case .lowRating:
+            // Fix 6: light red/orange #FFD5CC
+            return (fill: Color(hex: "FFD5CC"), stroke: nil)
         case .gray:
+            // legacy fallback
             return (fill: Color(white: 0.45), stroke: nil)
         case .white:
             return (fill: Color.white, stroke: nil)
