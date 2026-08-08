@@ -75,10 +75,13 @@ jobs:
             -exportPath build/export \
             -exportOptionsPlist build/ExportOptions.plist
 
+      - name: Find IPA
+        run: find build/export -name "*.ipa" | tee /tmp/ipa_path.txt && echo "IPA_PATH=$(cat /tmp/ipa_path.txt)" >> $GITHUB_ENV
+
       - name: Upload to App Store Connect
         uses: apple-actions/upload-testflight-build@v3
         with:
-          app-path: build/export/LifeInWeeks.ipa
+          app-path: ${{ env.IPA_PATH }}
           issuer-id: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           api-key-id: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           api-private-key: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
