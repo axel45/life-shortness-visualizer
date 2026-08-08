@@ -4,7 +4,6 @@ import Charts
 struct StatsSheet: View {
     let repository: RepositoryProtocol
     @State private var viewModel: StatsViewModel
-    @Environment(\.dismiss) private var dismiss
 
     init(repository: RepositoryProtocol) {
         self.repository = repository
@@ -25,11 +24,6 @@ struct StatsSheet: View {
             }
             .navigationTitle("統計")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("閉じる") { dismiss() }
-                }
-            }
         }
         .task { await viewModel.load() }
         .alert("エラー", isPresented: Binding(

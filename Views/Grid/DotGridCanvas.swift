@@ -33,14 +33,31 @@ struct DotGridCanvas: View {
                         let rect = CGRect(x: x, y: y, width: dotSize, height: dotSize)
                         let path = Path(ellipseIn: rect)
 
-                        context.fill(path, with: .color(colors.fill))
-                        if let stroke = colors.stroke {
-                            context.stroke(path, with: .color(stroke), lineWidth: 0.5)
-                        }
-
-                        if let selected = selectedLifeWeekIndex, idx == selected {
-                            let ringRect = rect.insetBy(dx: -1.5, dy: -1.5)
-                            context.stroke(Path(ellipseIn: ringRect), with: .color(.yellow), lineWidth: 1.5)
+                        let isSelected = selectedLifeWeekIndex == idx
+                        if isSelected {
+                            // Fix 13: Draw scaled-up dot (1.2x) with shadow for selected state
+                            let scale: CGFloat = 1.2
+                            let scaledSize = dotSize * scale
+                            let scaledRect = CGRect(
+                                x: x - (scaledSize - dotSize) / 2,
+                                y: y - (scaledSize - dotSize) / 2,
+                                width: scaledSize,
+                                height: scaledSize
+                            )
+                            let scaledPath = Path(ellipseIn: scaledRect)
+                            // Shadow layer
+                            var shadowContext = context
+                            shadowContext.addFilter(.shadow(color: .init(white: 1, opacity: 0.55), radius: 3, x: 0, y: 0))
+                            shadowContext.fill(scaledPath, with: .color(colors.fill))
+                            context.fill(scaledPath, with: .color(colors.fill))
+                            if let stroke = colors.stroke {
+                                context.stroke(scaledPath, with: .color(stroke), lineWidth: 0.5)
+                            }
+                        } else {
+                            context.fill(path, with: .color(colors.fill))
+                            if let stroke = colors.stroke {
+                                context.stroke(path, with: .color(stroke), lineWidth: 0.5)
+                            }
                         }
                     }
                 }

@@ -94,7 +94,7 @@ struct MainTabView: View {
         TabView {
             GridView(repository: repository)
                 .tabItem {
-                    Label("グリッド", systemImage: "circle.grid.3x3.fill")
+                    Label("人生カレンダー", systemImage: "circle.grid.3x3.fill")
                 }
             StatsSheet(repository: repository)
                 .tabItem {

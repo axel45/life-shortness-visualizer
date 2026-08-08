@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct WallpaperGuideView: View {
     let onComplete: () -> Void
@@ -20,7 +21,7 @@ struct WallpaperGuideView: View {
                         .font(.title2.bold())
                         .foregroundStyle(.white)
 
-                    Text("ショートカットAppで「毎週月曜 7:00」の自動化を設定すると、毎週グリッドが壁紙として更新されます。")
+                    Text("ショートカットAppで「毎週月曜 7:00」の自動化を設定すると、毎週人生カレンダーが壁紙として更新されます。")
                         .font(.subheadline)
                         .foregroundStyle(Color(white: 0.6))
                         .multilineTextAlignment(.center)
@@ -32,17 +33,25 @@ struct WallpaperGuideView: View {
                     stepRow(number: 2, text: "「オートメーション」→「+」をタップ")
                     stepRow(number: 3, text: "「時刻」→「毎週月曜 7:00」を設定")
                     stepRow(number: 4, text: "「壁紙を生成して保存」アクションを追加")
+                    stepRow(number: 5, text: "ショートカット名を「壁紙更新」にする")
                 }
                 .padding(.horizontal, 32)
+
+                Text("※ショートカットの名前を「壁紙更新」にすると、アプリから直接起動できます")
+                    .font(.caption)
+                    .foregroundStyle(Color(white: 0.45))
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
 
                 Spacer()
 
                 VStack(spacing: 12) {
                     Button {
-                        UserDefaults.standard.set(true, forKey: UserDefaultsKey.wallpaperShortcutConfigured)
-                        onComplete()
+                        if let url = URL(string: "shortcuts://run-shortcut?name=壁紙更新") {
+                            UIApplication.shared.open(url)
+                        }
                     } label: {
-                        Text("設定した")
+                        Text("今すぐ設定する")
                             .font(.headline)
                             .foregroundStyle(.black)
                             .frame(maxWidth: .infinity)
@@ -51,7 +60,7 @@ struct WallpaperGuideView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 14))
                     }
 
-                    Button("あとで設定する", action: onSkip)
+                    Button("後で設定する", action: onSkip)
                         .font(.subheadline)
                         .foregroundStyle(Color(white: 0.5))
                         .frame(height: 44)

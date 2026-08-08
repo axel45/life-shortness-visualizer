@@ -4,7 +4,6 @@ struct GridView: View {
     @State private var viewModel: GridViewModel
     private let repository: RepositoryProtocol
 
-    private let columns = Constants.weeksPerYear
     private let dotSize: CGFloat = 6
     private let dotSpacing: CGFloat = 2
     private let stageBarWidth: CGFloat = 24
@@ -18,21 +17,30 @@ struct GridView: View {
         ZStack(alignment: .bottom) {
             Color.black.ignoresSafeArea()
 
-            HStack(spacing: 8) {
-                LifeStageBarView(
-                    lifeStages: viewModel.lifeStages,
-                    lifeExpectancy: viewModel.userProfile?.lifeExpectancy ?? 85,
-                    width: stageBarWidth,
-                    dotSize: dotSize,
-                    dotSpacing: dotSpacing
-                )
-                .onTapGesture {
-                    viewModel.isStatsPresented = true
+            VStack(spacing: 0) {
+                if let profile = viewModel.userProfile {
+                    selectedWeekDateRange(birthDate: profile.birthDate)
                 }
 
-                gridCanvas
+                GeometryReader { geo in
+                    let columns = max(1, Int(geo.size.width / (dotSize + dotSpacing)))
+                    HStack(spacing: 8) {
+                        LifeStageBarView(
+                            lifeStages: viewModel.lifeStages,
+                            lifeExpectancy: viewModel.userProfile?.lifeExpectancy ?? 85,
+                            width: stageBarWidth,
+                            dotSize: dotSize,
+                            dotSpacing: dotSpacing
+                        )
+                        .onTapGesture {
+                            viewModel.isStatsPresented = true
+                        }
+
+                        gridCanvas(columns: columns)
+                    }
+                }
+                .padding(.horizontal, 12)
             }
-            .padding(.horizontal, 12)
 
             if viewModel.weekRecordMap.isEmpty {
                 // Fix 5: semi-transparent scrim behind hint
@@ -69,7 +77,29 @@ struct GridView: View {
         }
     }
 
-    private var gridCanvas: some View {
+    // Fix 12: Show selected week date range (no week number)
+    private func selectedWeekDateRange(birthDate: Date) -> some View {
+        let idx = viewModel.selectedLifeWeekIndex
+        let start = WeekCalculator.weekStartDate(lifeWeekIndex: idx, birthDate: birthDate)
+        let end = WeekCalculator.weekEndDate(lifeWeekIndex: idx, birthDate: birthDate)
+        let fmt = DateFormatter()
+        fmt.locale = Locale(identifier: "ja_JP")
+        fmt.dateFormat = "yyyy年M月d日"
+        let startStr = fmt.string(from: start)
+        let endFmt = DateFormatter()
+        endFmt.locale = Locale(identifier: "ja_JP")
+        endFmt.dateFormat = "d日"
+        let endStr = endFmt.string(from: end)
+        let rangeText = "\(startStr)〜\(endStr)"
+        return Text(rangeText)
+            .font(.caption2)
+            .foregroundStyle(Color(white: 0.6))
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(.vertical, 4)
+    }
+
+    // Fix 17: columns passed in from GeometryReader
+    private func gridCanvas(columns: Int) -> some View {
         DotGridCanvas(
             rows: viewModel.userProfile?.lifeExpectancy ?? 85,
             columns: columns,

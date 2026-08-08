@@ -11,6 +11,8 @@ struct SettingsView: View {
     @State private var showWallpaperGuide = false
     @State private var lifeStageErrorMessage: String? = nil
     @State private var editingStage: LifeStage? = nil
+    @State private var showProfileChangeConfirm = false
+    @State private var pendingLifeExpectancy: Int? = nil
 
     var body: some View {
         NavigationStack {
@@ -23,6 +25,20 @@ struct SettingsView: View {
                 dangerSection
             }
             .navigationTitle("設定")
+            .alert("変更の確認", isPresented: $showProfileChangeConfirm) {
+                Button("変更する") {
+                    if let newVal = pendingLifeExpectancy, let profile = userProfile {
+                        profile.lifeExpectancy = newVal
+                        Task { try? await repository.saveUserProfile(profile) }
+                    }
+                    pendingLifeExpectancy = nil
+                }
+                Button("キャンセル", role: .cancel) {
+                    pendingLifeExpectancy = nil
+                }
+            } message: {
+                Text("変更するとグリッドが再生成されます。よろしいですか？")
+            }
             .alert("すべてのデータを削除", isPresented: $showDeleteConfirm) {
                 Button("削除する", role: .destructive) {
                     Task { await deleteAll() }
@@ -66,8 +82,8 @@ struct SettingsView: View {
                     Stepper("\(profile.lifeExpectancy)歳", value: Binding(
                         get: { profile.lifeExpectancy },
                         set: { newVal in
-                            profile.lifeExpectancy = newVal
-                            Task { try? await repository.saveUserProfile(profile) }
+                            pendingLifeExpectancy = newVal
+                            showProfileChangeConfirm = true
                         }
                     ), in: 50...120)
                 }
