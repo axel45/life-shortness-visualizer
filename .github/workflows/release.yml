@@ -44,7 +44,7 @@ jobs:
             CODE_SIGN_STYLE=Manual \
             CODE_SIGN_IDENTITY="Apple Distribution" \
             PROVISIONING_PROFILE=4bb37241-636f-4986-a8c6-e59836efe68d \
-            DEVELOPMENT_TEAM=BX2YZJQU4N
+            DEVELOPMENT_TEAM=Q869JW9RBC
 
       - name: Export IPA
         run: |
@@ -56,7 +56,7 @@ jobs:
             <key>method</key>
             <string>app-store-connect</string>
             <key>teamID</key>
-            <string>BX2YZJQU4N</string>
+            <string>Q869JW9RBC</string>
             <key>signingStyle</key>
             <string>manual</string>
             <key>signingCertificate</key>
