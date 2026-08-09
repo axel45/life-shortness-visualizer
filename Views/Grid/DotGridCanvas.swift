@@ -47,7 +47,7 @@ struct DotGridCanvas: View {
                                 width: dotSize + ringPadding * 2,
                                 height: dotSize + ringPadding * 2
                             )
-                            context.stroke(Path(ellipseIn: ringRect), with: .color(Color.yellow), lineWidth: 1.5)
+                            context.stroke(Path(ellipseIn: ringRect), with: .color(Color.white), lineWidth: 1.5)
                         }
                     }
                 }

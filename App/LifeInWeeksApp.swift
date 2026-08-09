@@ -84,12 +84,17 @@ enum OnboardingStep {
 
 struct MainTabView: View {
     let repository: RepositoryProtocol
+    @State private var selectedWeekForRecord: Int = 0
 
     var body: some View {
         TabView {
-            GridView(repository: repository)
+            GridView(repository: repository, onWeekSelected: { selectedWeekForRecord = $0 })
                 .tabItem {
                     Label("人生カレンダー", systemImage: "circle.grid.3x3.fill")
+                }
+            RecordView(lifeWeekIndex: selectedWeekForRecord, repository: repository)
+                .tabItem {
+                    Label("記録", systemImage: "pencil.circle.fill")
                 }
             StatsSheet(repository: repository)
                 .tabItem {

@@ -3,12 +3,14 @@ import SwiftUI
 struct GridView: View {
     @State private var viewModel: GridViewModel
     private let repository: RepositoryProtocol
+    var onWeekSelected: ((Int) -> Void)?
 
     private let dotSize: CGFloat = 6
     private let dotSpacing: CGFloat = 2
 
-    init(repository: RepositoryProtocol) {
+    init(repository: RepositoryProtocol, onWeekSelected: ((Int) -> Void)? = nil) {
         self.repository = repository
+        self.onWeekSelected = onWeekSelected
         _viewModel = State(initialValue: GridViewModel(repository: repository))
     }
 
@@ -37,10 +39,11 @@ struct GridView: View {
             if viewModel.showWallpaperBanner {
                 wallpaperBanner
             }
-
-            fabButton
         }
         .task { await viewModel.loadData() }
+        .onChange(of: viewModel.selectedLifeWeekIndex) { _, newIndex in
+            onWeekSelected?(newIndex)
+        }
         .alert("エラー", isPresented: Binding(
             get: { viewModel.errorMessage != nil },
             set: { if !$0 { viewModel.errorMessage = nil } }
@@ -48,13 +51,6 @@ struct GridView: View {
             Button("OK") { viewModel.errorMessage = nil }
         } message: {
             Text(viewModel.errorMessage ?? "")
-        }
-        .sheet(isPresented: $viewModel.isWeekDetailPresented) {
-            WeekDetailSheet(
-                lifeWeekIndex: viewModel.selectedLifeWeekIndex,
-                repository: repository,
-                onSave: { viewModel.reloadAfterSave() }
-            )
         }
     }
 
@@ -70,8 +66,7 @@ struct GridView: View {
         endFmt.locale = Locale(identifier: "ja_JP")
         endFmt.dateFormat = "d日"
         let endStr = endFmt.string(from: end)
-        let rangeText = "\(startStr)〜\(endStr)"
-        return Text(rangeText)
+        return Text("\(startStr)〜\(endStr)")
             .font(.caption2)
             .foregroundStyle(Color(white: 0.6))
             .frame(maxWidth: .infinity, alignment: .center)
@@ -94,29 +89,12 @@ struct GridView: View {
         )
     }
 
-    private var fabButton: some View {
-        Button {
-            viewModel.openWeekDetail()
-        } label: {
-            Image(systemName: viewModel.isSelectedWeekRecorded ? "pencil" : "plus")
-                .font(.system(size: 22, weight: .semibold))
-                .foregroundStyle(.black)
-                .frame(width: 56, height: 56)
-                .background(viewModel.isSelectedWeekRecorded ? Color.white : Color.yellow)
-                .clipShape(Circle())
-                .animation(.spring(duration: 0.25), value: viewModel.isSelectedWeekRecorded)
-        }
-        .padding(.bottom, 32)
-        .padding(.trailing, 24)
-        .frame(maxWidth: .infinity, alignment: .trailing)
-    }
-
     private var emptyStateOverlay: some View {
         VStack(spacing: 8) {
             Image(systemName: "plus.circle")
                 .font(.system(size: 32))
                 .foregroundStyle(Color.yellow.opacity(0.7))
-            Text("＋ボタンを押して今週の記録を入力しよう")
+            Text("「記録」タブで今週の記録を入力しよう")
                 .font(.subheadline)
                 .foregroundStyle(Color(white: 0.6))
                 .multilineTextAlignment(.center)
@@ -125,7 +103,7 @@ struct GridView: View {
         .background(Color.black.opacity(0.85))
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .padding(.horizontal, 40)
-        .padding(.bottom, 112)
+        .padding(.bottom, 48)
     }
 
     private var wallpaperBanner: some View {

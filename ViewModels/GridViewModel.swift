@@ -10,7 +10,6 @@ final class GridViewModel {
     var weekRecords: [WeekRecord] = []
     private(set) var weekRecordMap: [Int: WeekRecord] = [:]
     var selectedLifeWeekIndex: Int = 0
-    var isWeekDetailPresented: Bool = false
     var showWallpaperBanner: Bool = false
     var errorMessage: String? = nil
 
@@ -34,22 +33,9 @@ final class GridViewModel {
         Constants.defaultLifeExpectancy * Constants.weeksPerYear
     }
 
-    /// Selects a week (shows yellow ring) without opening the edit sheet.
     func selectWeekOnly(_ lifeWeekIndex: Int) {
-        // Future weeks are non-selectable (Fix 14)
         guard lifeWeekIndex <= currentLifeWeekIndex else { return }
         selectedLifeWeekIndex = lifeWeekIndex
-    }
-
-    /// Opens the edit sheet for the currently selected week.
-    func openWeekDetail() {
-        guard selectedLifeWeekIndex <= currentLifeWeekIndex else { return }
-        isWeekDetailPresented = true
-    }
-
-    func selectCurrentWeek() {
-        selectedLifeWeekIndex = currentLifeWeekIndex
-        isWeekDetailPresented = true
     }
 
     /// Reload week records after a save in WeekDetailSheet (Fix 15).
