@@ -11,6 +11,7 @@ struct DotGridCanvas: View {
     let centeredLayout: Bool
     var onTap: ((Int) -> Void)?
     var onSwipe: ((Int) -> Void)?
+    var onVerticalSwipe: ((Int) -> Void)?
 
     private var cellSize: CGFloat { dotSize + dotSpacing }
 
@@ -34,30 +35,19 @@ struct DotGridCanvas: View {
                         let path = Path(ellipseIn: rect)
 
                         let isSelected = selectedLifeWeekIndex == idx
+                        context.fill(path, with: .color(colors.fill))
+                        if let stroke = colors.stroke {
+                            context.stroke(path, with: .color(stroke), lineWidth: 0.5)
+                        }
                         if isSelected {
-                            // Fix 13: Draw scaled-up dot (1.2x) with shadow for selected state
-                            let scale: CGFloat = 1.2
-                            let scaledSize = dotSize * scale
-                            let scaledRect = CGRect(
-                                x: x - (scaledSize - dotSize) / 2,
-                                y: y - (scaledSize - dotSize) / 2,
-                                width: scaledSize,
-                                height: scaledSize
+                            let ringPadding: CGFloat = 1.5
+                            let ringRect = CGRect(
+                                x: x - ringPadding,
+                                y: y - ringPadding,
+                                width: dotSize + ringPadding * 2,
+                                height: dotSize + ringPadding * 2
                             )
-                            let scaledPath = Path(ellipseIn: scaledRect)
-                            // Shadow layer
-                            var shadowContext = context
-                            shadowContext.addFilter(.shadow(color: .init(white: 1, opacity: 0.55), radius: 3, x: 0, y: 0))
-                            shadowContext.fill(scaledPath, with: .color(colors.fill))
-                            context.fill(scaledPath, with: .color(colors.fill))
-                            if let stroke = colors.stroke {
-                                context.stroke(scaledPath, with: .color(stroke), lineWidth: 0.5)
-                            }
-                        } else {
-                            context.fill(path, with: .color(colors.fill))
-                            if let stroke = colors.stroke {
-                                context.stroke(path, with: .color(stroke), lineWidth: 0.5)
-                            }
+                            context.stroke(Path(ellipseIn: ringRect), with: .color(Color.yellow), lineWidth: 1.5)
                         }
                     }
                 }
@@ -75,17 +65,24 @@ struct DotGridCanvas: View {
                 }
             )
             .gesture(
-                onSwipe.map { handler in
-                    DragGesture(minimumDistance: 20)
-                        .onEnded { value in
-                            guard abs(value.translation.width) > abs(value.translation.height) else { return }
-                            guard let current = selectedLifeWeekIndex else { return }
+                DragGesture(minimumDistance: 20)
+                    .onEnded { value in
+                        guard let current = selectedLifeWeekIndex else { return }
+                        let isHorizontal = abs(value.translation.width) > abs(value.translation.height)
+                        if isHorizontal {
+                            guard let handler = onSwipe else { return }
                             let delta = value.translation.width < 0 ? 1 : -1
                             let next = current + delta
                             guard next >= 0 && next < rows * columns else { return }
                             handler(next)
+                        } else {
+                            guard let handler = onVerticalSwipe else { return }
+                            let delta = value.translation.height < 0 ? -Constants.weeksPerYear : Constants.weeksPerYear
+                            let next = current + delta
+                            guard next >= 0 && next < rows * columns else { return }
+                            handler(next)
                         }
-                }
+                    }
             )
         }
     }

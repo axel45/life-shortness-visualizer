@@ -6,7 +6,6 @@ struct GridView: View {
 
     private let dotSize: CGFloat = 6
     private let dotSpacing: CGFloat = 2
-    private let stageBarWidth: CGFloat = 24
 
     init(repository: RepositoryProtocol) {
         self.repository = repository
@@ -24,26 +23,11 @@ struct GridView: View {
 
                 GeometryReader { geo in
                     let columns = max(1, Int(geo.size.width / (dotSize + dotSpacing)))
-                    HStack(spacing: 8) {
-                        LifeStageBarView(
-                            lifeStages: viewModel.lifeStages,
-                            lifeExpectancy: viewModel.userProfile?.lifeExpectancy ?? 85,
-                            width: stageBarWidth,
-                            dotSize: dotSize,
-                            dotSpacing: dotSpacing
-                        )
-                        .onTapGesture {
-                            viewModel.isStatsPresented = true
-                        }
-
-                        gridCanvas(columns: columns)
-                    }
+                    gridCanvas(columns: columns)
                 }
-                .padding(.horizontal, 12)
             }
 
             if viewModel.weekRecordMap.isEmpty {
-                // Fix 5: semi-transparent scrim behind hint
                 Color.black.opacity(0.55)
                     .ignoresSafeArea()
                     .allowsHitTesting(false)
@@ -72,12 +56,8 @@ struct GridView: View {
                 onSave: { viewModel.reloadAfterSave() }
             )
         }
-        .sheet(isPresented: $viewModel.isStatsPresented) {
-            StatsSheet(repository: repository)
-        }
     }
 
-    // Fix 12: Show selected week date range (no week number)
     private func selectedWeekDateRange(birthDate: Date) -> some View {
         let idx = viewModel.selectedLifeWeekIndex
         let start = WeekCalculator.weekStartDate(lifeWeekIndex: idx, birthDate: birthDate)
@@ -98,10 +78,9 @@ struct GridView: View {
             .padding(.vertical, 4)
     }
 
-    // Fix 17: columns passed in from GeometryReader
     private func gridCanvas(columns: Int) -> some View {
         DotGridCanvas(
-            rows: viewModel.userProfile?.lifeExpectancy ?? 85,
+            rows: Constants.defaultLifeExpectancy,
             columns: columns,
             dotSize: dotSize,
             dotSpacing: dotSpacing,
@@ -110,22 +89,22 @@ struct GridView: View {
             weekRecordMap: viewModel.weekRecordMap,
             centeredLayout: false,
             onTap: { viewModel.selectWeekOnly($0) },
-            onSwipe: { viewModel.selectWeekOnly($0) }
+            onSwipe: { viewModel.selectWeekOnly($0) },
+            onVerticalSwipe: { viewModel.selectWeekOnly($0) }
         )
     }
 
     private var fabButton: some View {
-        // Fix 5: Updated hint text
         Button {
-            viewModel.selectCurrentWeek()
+            viewModel.openWeekDetail()
         } label: {
-            Image(systemName: viewModel.isCurrentWeekRecorded ? "pencil" : "plus")
+            Image(systemName: viewModel.isSelectedWeekRecorded ? "pencil" : "plus")
                 .font(.system(size: 22, weight: .semibold))
                 .foregroundStyle(.black)
                 .frame(width: 56, height: 56)
-                .background(viewModel.isCurrentWeekRecorded ? Color.white : Color.yellow)
+                .background(viewModel.isSelectedWeekRecorded ? Color.white : Color.yellow)
                 .clipShape(Circle())
-                .animation(.spring(duration: 0.25), value: viewModel.isCurrentWeekRecorded)
+                .animation(.spring(duration: 0.25), value: viewModel.isSelectedWeekRecorded)
         }
         .padding(.bottom, 32)
         .padding(.trailing, 24)
@@ -133,12 +112,10 @@ struct GridView: View {
     }
 
     private var emptyStateOverlay: some View {
-        // Fix 5: Updated text and placed above scrim
         VStack(spacing: 8) {
             Image(systemName: "plus.circle")
                 .font(.system(size: 32))
                 .foregroundStyle(Color.yellow.opacity(0.7))
-            // Fix 5: Changed hint text
             Text("＋ボタンを押して今週の記録を入力しよう")
                 .font(.subheadline)
                 .foregroundStyle(Color(white: 0.6))

@@ -3,7 +3,6 @@ import UIKit
 
 struct GridGenerationView: View {
     let birthDate: Date
-    let lifeExpectancy: Int
     let onComplete: () -> Void
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -13,7 +12,7 @@ struct GridGenerationView: View {
     private let dotSpacing: CGFloat = 1
     private let animationDuration: Double = 2.5
 
-    private var rows: Int { lifeExpectancy }
+    private var rows: Int { Constants.defaultLifeExpectancy }
     private var currentLifeWeekIndex: Int { WeekCalculator.lifeWeekIndex(from: birthDate) }
 
     @State private var startDate: Date? = nil

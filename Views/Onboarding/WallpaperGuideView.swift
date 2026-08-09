@@ -33,11 +33,12 @@ struct WallpaperGuideView: View {
                     stepRow(number: 2, text: "「オートメーション」→「+」をタップ")
                     stepRow(number: 3, text: "「時刻」→「毎週月曜 7:00」を設定")
                     stepRow(number: 4, text: "「壁紙を生成して保存」アクションを追加")
-                    stepRow(number: 5, text: "ショートカット名を「壁紙更新」にする")
+                    stepRow(number: 5, text: "「壁紙を設定」アクションを追加し、写真ライブラリから最新の画像を選択")
+                    stepRow(number: 6, text: "「実行時に通知: オフ」に設定して完了")
                 }
                 .padding(.horizontal, 32)
 
-                Text("※ショートカットの名前を「壁紙更新」にすると、アプリから直接起動できます")
+                Text("※ アプリが写真に壁紙画像を保存 → ショートカットが壁紙として設定する、という2ステップで動作します")
                     .font(.caption)
                     .foregroundStyle(Color(white: 0.45))
                     .multilineTextAlignment(.center)
@@ -47,11 +48,11 @@ struct WallpaperGuideView: View {
 
                 VStack(spacing: 12) {
                     Button {
-                        if let url = URL(string: "shortcuts://run-shortcut?name=壁紙更新") {
+                        if let url = URL(string: "shortcuts://") {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("今すぐ設定する")
+                        Text("ショートカットAppを開く")
                             .font(.headline)
                             .foregroundStyle(.black)
                             .frame(maxWidth: .infinity)

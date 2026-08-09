@@ -9,10 +9,8 @@ final class GridViewModel {
     var userProfile: UserProfile?
     var weekRecords: [WeekRecord] = []
     private(set) var weekRecordMap: [Int: WeekRecord] = [:]
-    var lifeStages: [LifeStage] = []
     var selectedLifeWeekIndex: Int = 0
     var isWeekDetailPresented: Bool = false
-    var isStatsPresented: Bool = false
     var showWallpaperBanner: Bool = false
     var errorMessage: String? = nil
 
@@ -27,28 +25,13 @@ final class GridViewModel {
         return WeekCalculator.lifeWeekIndex(from: profile.birthDate)
     }
 
-    var isCurrentWeekRecorded: Bool {
-        guard let record = weekRecordMap[currentLifeWeekIndex] else { return false }
+    var isSelectedWeekRecorded: Bool {
+        guard let record = weekRecordMap[selectedLifeWeekIndex] else { return false }
         return record.ratings.contains { $0.stars > 0 }
     }
 
     var totalWeeks: Int {
-        (userProfile?.lifeExpectancy ?? 85) * 52
-    }
-
-    func weekRecord(at lifeWeekIndex: Int) -> WeekRecord? {
-        weekRecordMap[lifeWeekIndex]
-    }
-
-    func dotColor(at lifeWeekIndex: Int) -> DotColor {
-        let isFuture = lifeWeekIndex > currentLifeWeekIndex
-        let record = weekRecord(at: lifeWeekIndex)
-        return ColorResolver.dotColor(for: record, isFuture: isFuture)
-    }
-
-    func lifeStage(for lifeWeekIndex: Int) -> LifeStage? {
-        let age = WeekCalculator.age(lifeWeekIndex: lifeWeekIndex)
-        return lifeStages.first { $0.startAge <= age && age < $0.endAge }
+        Constants.defaultLifeExpectancy * Constants.weeksPerYear
     }
 
     /// Selects a week (shows yellow ring) without opening the edit sheet.
@@ -86,7 +69,6 @@ final class GridViewModel {
             userProfile = try await repository.fetchUserProfile()
             weekRecords = try await repository.fetchWeekRecords()
             weekRecordMap = Dictionary(uniqueKeysWithValues: weekRecords.map { ($0.lifeWeekIndex, $0) })
-            lifeStages = try await repository.fetchLifeStages()
             selectedLifeWeekIndex = currentLifeWeekIndex
             checkWallpaperBanner()
         } catch {

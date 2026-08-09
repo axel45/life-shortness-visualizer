@@ -29,7 +29,6 @@ struct RootView: View {
     @State private var isOnboardingComplete = UserDefaults.standard.bool(forKey: UserDefaultsKey.onboardingCompleted)
     @State private var onboardingStep: OnboardingStep = .splash
     @State private var onboardingBirthDate: Date = Date()
-    @State private var onboardingLifeExpectancy: Int = Constants.defaultLifeExpectancy
 
     private var repository: RepositoryProtocol {
         SwiftDataRepository(modelContext: modelContainer.mainContext)
@@ -51,16 +50,12 @@ struct RootView: View {
                 withAnimation(.easeInOut(duration: 0.4)) { onboardingStep = .birthDate }
             }
         case .birthDate:
-            BirthDateInputView(repository: repository) { birthDate, lifeExpectancy in
+            BirthDateInputView(repository: repository) { birthDate in
                 onboardingBirthDate = birthDate
-                onboardingLifeExpectancy = lifeExpectancy
                 withAnimation(.easeInOut(duration: 0.4)) { onboardingStep = .gridGeneration }
             }
         case .gridGeneration:
-            GridGenerationView(
-                birthDate: onboardingBirthDate,
-                lifeExpectancy: onboardingLifeExpectancy
-            ) {
+            GridGenerationView(birthDate: onboardingBirthDate) {
                 withAnimation(.easeInOut(duration: 0.4)) { onboardingStep = .wallpaperGuide }
             }
         case .categorySetup:

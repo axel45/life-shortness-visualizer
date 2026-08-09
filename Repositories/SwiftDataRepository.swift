@@ -43,7 +43,7 @@ final class SwiftDataRepository: RepositoryProtocol {
     }
 
     func saveWeekRecord(_ record: WeekRecord) async throws {
-        if modelContext.insertedModelsArray.contains(where: { $0 === record }) == false {
+        if record.modelContext == nil {
             modelContext.insert(record)
         }
         record.updatedAt = Date()
@@ -59,7 +59,7 @@ final class SwiftDataRepository: RepositoryProtocol {
     }
 
     func saveCategory(_ category: Category) async throws {
-        if modelContext.insertedModelsArray.contains(where: { $0 === category }) == false {
+        if category.modelContext == nil {
             modelContext.insert(category)
         }
         category.updatedAt = Date()
@@ -80,7 +80,7 @@ final class SwiftDataRepository: RepositoryProtocol {
     }
 
     func saveLifeStage(_ stage: LifeStage) async throws {
-        if modelContext.insertedModelsArray.contains(where: { $0 === stage }) == false {
+        if stage.modelContext == nil {
             modelContext.insert(stage)
         }
         stage.updatedAt = Date()
