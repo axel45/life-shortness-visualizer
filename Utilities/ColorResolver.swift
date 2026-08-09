@@ -3,51 +3,24 @@ import SwiftUI
 enum DotColor {
     case future
     case unrecorded
-    case lowRating   // rating 1-2
-    case gray        // kept for backward compatibility (rating < 3 but >= 0 with no specific rating)
-    case white
-    case silver
-    case gold
+    case normal    // recorded, avg ≤ 4.5
+    case sunshine  // recorded, avg > 4.5
 }
 
 enum ColorResolver {
 
     static func dotColor(for weekRecord: WeekRecord?, isFuture: Bool) -> DotColor {
-        // Fix 14: Future weeks use 'future' color (visually dimmed)
         if isFuture { return .future }
-
-        // Fix 4 & Fix 6: distinguish unrecorded from low-rating
-        guard let record = weekRecord else { return .unrecorded }
-        guard let avg = record.averageStars else { return .unrecorded }
-
-        switch avg {
-        case ..<3.0: return .lowRating  // Fix 6: rating 1-2 gets distinct color
-        case 3.0..<4.0: return .white
-        case 4.0..<5.0: return .silver
-        default: return .gold
-        }
+        guard let record = weekRecord, let avg = record.averageStars else { return .unrecorded }
+        return avg > 4.5 ? .sunshine : .normal
     }
 
-    static func color(for dotColor: DotColor) -> (fill: Color, stroke: Color?) {
+    static func color(for dotColor: DotColor) -> Color {
         switch dotColor {
-        case .future:
-            // Fix 4: light gray #D1D1D6
-            return (fill: Color(hex: "D1D1D6"), stroke: nil)
-        case .unrecorded:
-            // Fix 4: off-white #F2F2F7
-            return (fill: Color(hex: "F2F2F7"), stroke: nil)
-        case .lowRating:
-            // Fix 6: light red/orange #FFD5CC
-            return (fill: Color(hex: "FFD5CC"), stroke: nil)
-        case .gray:
-            // legacy fallback
-            return (fill: Color(white: 0.45), stroke: nil)
-        case .white:
-            return (fill: Color.white, stroke: nil)
-        case .silver:
-            return (fill: Color(white: 0.75), stroke: nil)
-        case .gold:
-            return (fill: Color(red: 1.0, green: 0.84, blue: 0.0), stroke: nil)
+        case .future:     return Color(hex: "48484A")  // チャコールグレー（小）
+        case .unrecorded: return Color(hex: "48484A")  // チャコールグレー
+        case .normal:     return Color(hex: "AEAEB2")  // ライトグレー
+        case .sunshine:   return Color(hex: "FFE566")  // サンシャイン
         }
     }
 }
@@ -67,7 +40,6 @@ extension Color {
         let uiColor = UIColor(self)
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
-        let ri = Int(r * 255), gi = Int(g * 255), bi = Int(b * 255)
-        return String(format: "#%02X%02X%02X", ri, gi, bi)
+        return String(format: "#%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
     }
 }

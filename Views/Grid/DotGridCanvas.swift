@@ -2,7 +2,7 @@ import SwiftUI
 
 struct DotGridCanvas: View {
     let rows: Int
-    let columns: Int  // = Constants.weeksPerYear
+    let columns: Int
     let dotSize: CGFloat
     let dotSpacing: CGFloat
     let currentLifeWeekIndex: Int
@@ -14,6 +14,7 @@ struct DotGridCanvas: View {
     var onVerticalSwipe: ((Int) -> Void)?
 
     private var cellSize: CGFloat { dotSize + dotSpacing }
+    private var futureDotSize: CGFloat { max(2, dotSize * 0.5) }
 
     var body: some View {
         GeometryReader { geo in
@@ -27,19 +28,19 @@ struct DotGridCanvas: View {
                         let isFuture = idx > currentLifeWeekIndex
                         let record = weekRecordMap[idx]
                         let dotColor = ColorResolver.dotColor(for: record, isFuture: isFuture)
-                        let colors = ColorResolver.color(for: dotColor)
+                        let fill = ColorResolver.color(for: dotColor)
 
                         let x = offsetX + CGFloat(col) * cellSize
                         let y = offsetY + CGFloat(row) * cellSize
-                        let rect = CGRect(x: x, y: y, width: dotSize, height: dotSize)
-                        let path = Path(ellipseIn: rect)
 
-                        let isSelected = selectedLifeWeekIndex == idx
-                        context.fill(path, with: .color(colors.fill))
-                        if let stroke = colors.stroke {
-                            context.stroke(path, with: .color(stroke), lineWidth: 0.5)
-                        }
-                        if isSelected {
+                        // 未来週は小さいドット（セル中央に配置）
+                        let actualSize = isFuture ? futureDotSize : dotSize
+                        let inset = (dotSize - actualSize) / 2
+                        let rect = CGRect(x: x + inset, y: y + inset, width: actualSize, height: actualSize)
+
+                        context.fill(Path(ellipseIn: rect), with: .color(fill))
+
+                        if selectedLifeWeekIndex == idx {
                             let ringPadding: CGFloat = 1.5
                             let ringRect = CGRect(
                                 x: x - ringPadding,
@@ -47,7 +48,8 @@ struct DotGridCanvas: View {
                                 width: dotSize + ringPadding * 2,
                                 height: dotSize + ringPadding * 2
                             )
-                            context.stroke(Path(ellipseIn: ringRect), with: .color(Color.white), lineWidth: 1.5)
+                            // ソフトホワイト #F2F2F7
+                            context.stroke(Path(ellipseIn: ringRect), with: .color(Color(hex: "F2F2F7")), lineWidth: 1.5)
                         }
                     }
                 }
