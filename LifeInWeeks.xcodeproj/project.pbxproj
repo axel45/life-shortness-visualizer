@@ -38,6 +38,7 @@
 		EDFD6D1EF65F4D4EA8A78154 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444AADFAE8D646736F6B9CAD /* UserProfile.swift */; };
 		EEA1516AE8FCD2C47D1A4908 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA762968C656D1766AECFE01 /* RepositoryProtocol.swift */; };
 		F13D5221DED6DDA398B09D5A /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746FAAEA579441CADB74B81D /* GridView.swift */; };
+		AA11BB22CC33DD44EE55FF66 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB22CC33DD44EE55FF6600AA /* RecordView.swift */; };
 		F6C659772C1F91889D9AB088 /* StatsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E1B67F3EFE9CDD3347A8B /* StatsSheet.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		DABCCF47BAFF574D7160175C /* DotGridCanvas.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DotGridCanvas.swift; path = Views/Grid/DotGridCanvas.swift; sourceTree = "<group>"; };
 		E12308EFABEB2B120C58AF33 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		EAED15BAD6514E40BF7EFE3A /* WeekDetailSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekDetailSheet.swift; path = Views/WeekDetail/WeekDetailSheet.swift; sourceTree = "<group>"; };
+		BB22CC33DD44EE55FF6600AA /* RecordView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordView.swift; path = Views/Record/RecordView.swift; sourceTree = "<group>"; };
 		EED13B38DC56AFA6452BC5B9 /* StatsViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatsViewModel.swift; path = ViewModels/StatsViewModel.swift; sourceTree = "<group>"; };
 		F193A43A20A1FC9EECCAAF83 /* WeekCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekCalculator.swift; path = Utilities/WeekCalculator.swift; sourceTree = "<group>"; };
 		F6D159D6C10449CB4CD9C292 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				EBE79F3BBE2DC1D901F6B01A /* ViewModels */,
 				A20527DE9DA4FDE52D4C6418 /* Grid */,
 				E80B66B3CDA0E465D49F9187 /* WeekDetail */,
+				CC33DD44EE55FF6600AABB11 /* Record */,
 				6FF0E2E3D73AC477D650A686 /* Stats */,
 				B7C06610E9BB8C95502B2251 /* Settings */,
 				A1173E083620E9EF263ABF5B /* Onboarding */,
@@ -264,6 +267,14 @@
 				EAED15BAD6514E40BF7EFE3A /* WeekDetailSheet.swift */,
 			);
 			name = WeekDetail;
+			sourceTree = "<group>";
+		};
+		CC33DD44EE55FF6600AABB11 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				BB22CC33DD44EE55FF6600AA /* RecordView.swift */,
+			);
+			name = Record;
 			sourceTree = "<group>";
 		};
 		EBE79F3BBE2DC1D901F6B01A /* ViewModels */ = {
@@ -390,6 +401,7 @@
 				F13D5221DED6DDA398B09D5A /* GridView.swift in Sources */,
 				12A835F0F584CA7B27A74E0B /* LifeStageBarView.swift in Sources */,
 				7A2D5C0B734CD08A4C4073FA /* WeekDetailSheet.swift in Sources */,
+				AA11BB22CC33DD44EE55FF66 /* RecordView.swift in Sources */,
 				F6C659772C1F91889D9AB088 /* StatsSheet.swift in Sources */,
 				C752FF418C45058B77D5778A /* SettingsView.swift in Sources */,
 				C1D89F493872843B9254CABD /* BirthDateInputView.swift in Sources */,
