@@ -7,7 +7,6 @@ struct LifeInWeeksShortcuts: AppShortcutsProvider {
         AppShortcut(
             intent: GenerateWallpaperIntent(),
             phrases: [
-                "壁紙を更新",
                 "\(.applicationName)の壁紙を更新",
                 "\(.applicationName)で壁紙を生成"
             ],
