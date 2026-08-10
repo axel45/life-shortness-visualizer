@@ -73,13 +73,15 @@ struct DotGridCanvas: View {
                         let isHorizontal = abs(value.translation.width) > abs(value.translation.height)
                         if isHorizontal {
                             guard let handler = onSwipe else { return }
-                            let delta = value.translation.width < 0 ? 1 : -1
+                            // swipe right = next week (+1), swipe left = previous week (-1)
+                            let delta = value.translation.width > 0 ? 1 : -1
                             let next = current + delta
                             guard next >= 0 && next < rows * columns else { return }
                             handler(next)
                         } else {
                             guard let handler = onVerticalSwipe else { return }
-                            let delta = value.translation.height < 0 ? -Constants.weeksPerYear : Constants.weeksPerYear
+                            // swipe down = next year (+52), swipe up = previous year (-52)
+                            let delta = value.translation.height > 0 ? Constants.weeksPerYear : -Constants.weeksPerYear
                             let next = current + delta
                             guard next >= 0 && next < rows * columns else { return }
                             handler(next)

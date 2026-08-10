@@ -85,25 +85,34 @@ enum OnboardingStep {
 struct MainTabView: View {
     let repository: RepositoryProtocol
     @State private var selectedWeekForRecord: Int = 0
+    @State private var selectedTab: Int = 0
+    @State private var isRecordSheetPresented = false
 
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             GridView(repository: repository, onWeekSelected: { selectedWeekForRecord = $0 })
-                .tabItem {
-                    Label("人生カレンダー", systemImage: "circle.grid.3x3.fill")
-                }
-            RecordView(lifeWeekIndex: selectedWeekForRecord, repository: repository)
-                .tabItem {
-                    Label("記録", systemImage: "pencil.circle.fill")
-                }
+                .tabItem { Label("人生カレンダー", systemImage: "circle.grid.3x3.fill") }
+                .tag(0)
+            Color.clear
+                .tabItem { Label("記録", systemImage: "pencil.circle.fill") }
+                .tag(1)
             StatsSheet(repository: repository)
-                .tabItem {
-                    Label("統計", systemImage: "chart.line.uptrend.xyaxis")
-                }
+                .tabItem { Label("統計", systemImage: "chart.line.uptrend.xyaxis") }
+                .tag(2)
             SettingsView(repository: repository)
-                .tabItem {
-                    Label("設定", systemImage: "gearshape")
-                }
+                .tabItem { Label("設定", systemImage: "gearshape") }
+                .tag(3)
+        }
+        .onChange(of: selectedTab) { _, newTab in
+            if newTab == 1 {
+                selectedTab = 0  // stay on calendar tab; show sheet instead
+                isRecordSheetPresented = true
+            }
+        }
+        .sheet(isPresented: $isRecordSheetPresented) {
+            WeekDetailSheet(lifeWeekIndex: selectedWeekForRecord, repository: repository)
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
         }
         .preferredColorScheme(.dark)
     }

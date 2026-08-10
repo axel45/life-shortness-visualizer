@@ -42,7 +42,7 @@ final class WeekDetailViewModel {
         weekRecord?.rating(for: category.id)?.stars ?? 0
     }
 
-    /// Fix 16: Immediately update local UI state (optimistic update) before async save.
+    // Optimistic update: reflect in local state immediately for snappy UI
     func setStarsOptimistic(_ stars: Int, for category: Category) {
         if weekRecord == nil {
             let newRecord = WeekRecord(lifeWeekIndex: lifeWeekIndex)
@@ -77,6 +77,12 @@ final class WeekDetailViewModel {
                 record.ratings.append(rating)
             }
             try await repository.saveWeekRecord(record)
+
+            // Reload from DB after save to guarantee SwiftData @Observable tracking
+            // fires correctly even when CategoryRating nested property changes
+            // are not detected by the observation system (5+ consecutive edits).
+            weekRecord = try await repository.fetchWeekRecord(lifeWeekIndex: lifeWeekIndex)
+
             UINotificationFeedbackGenerator().notificationOccurred(.success)
         } catch {
             errorMessage = "記録の保存に失敗しました"

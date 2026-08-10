@@ -11,6 +11,9 @@ struct SettingsView: View {
     @State private var showWallpaperGuide = false
     @State private var lifeStageErrorMessage: String? = nil
     @State private var editingStage: LifeStage? = nil
+    @State private var showAddCategorySheet = false
+    @State private var newCategoryName = ""
+    @State private var categoryErrorMessage: String? = nil
 
     var body: some View {
         NavigationStack {
@@ -52,15 +55,19 @@ struct SettingsView: View {
                     }
                 )
             }
+            .sheet(isPresented: $showAddCategorySheet) {
+                addCategorySheet
+            }
         }
         .task { await loadData() }
     }
+
+    // MARK: - Sections
 
     private var profileSection: some View {
         Section("プロフィール") {
             if let profile = userProfile {
                 LabeledContent("生年月日", value: formattedDate(profile.birthDate))
-                LabeledContent("グリッド期間", value: "\(Constants.defaultLifeExpectancy)年（固定）")
             }
         }
     }
@@ -103,22 +110,16 @@ struct SettingsView: View {
         }
     }
 
-    private func validateLifeStage(name: String, startAge: Int, endAge: Int) -> String? {
-        if name.trimmingCharacters(in: .whitespaces).isEmpty { return "ステージ名を入力してください" }
-        if name.count > 20 { return "ステージ名は20文字以内で入力してください" }
-        if startAge < 0 || startAge > 84 { return "開始年齢は0〜84歳で入力してください" }
-        if endAge <= startAge { return "終了年齢は開始年齢より大きくしてください" }
-        let overlap = lifeStages.first { s in s.startAge < endAge && startAge < s.endAge }
-        if let overlap { return "「\(overlap.name)」と年齢が重複しています" }
-        return nil
-    }
-
     private var categoriesSection: some View {
-        Section("カテゴリー（最大5個）") {
+        Section {
             ForEach(categories) { category in
                 Text(category.name)
             }
             .onDelete { indexSet in
+                guard categories.count > 1 else {
+                    categoryErrorMessage = "カテゴリーは最低1個必要です"
+                    return
+                }
                 Task {
                     for i in indexSet {
                         try? await repository.deleteCategory(categories[i])
@@ -126,7 +127,59 @@ struct SettingsView: View {
                     categories = (try? await repository.fetchCategories()) ?? []
                 }
             }
+
+            if let error = categoryErrorMessage {
+                Text(error)
+                    .font(.caption)
+                    .foregroundStyle(.orange)
+            }
+
+            if categories.count < 5 {
+                Button {
+                    newCategoryName = ""
+                    categoryErrorMessage = nil
+                    showAddCategorySheet = true
+                } label: {
+                    Label("カテゴリーを追加", systemImage: "plus.circle")
+                }
+            }
+        } header: {
+            Text("カテゴリー（\(categories.count)/5）")
+        } footer: {
+            Text("スワイプで削除。最低1個・最大5個。")
+                .font(.caption)
         }
+    }
+
+    private var addCategorySheet: some View {
+        NavigationStack {
+            Form {
+                Section("カテゴリー名") {
+                    TextField("例: 読書・家族・副業", text: $newCategoryName)
+                        .autocorrectionDisabled()
+                }
+                if let error = categoryErrorMessage {
+                    Section {
+                        Text(error)
+                            .font(.caption)
+                            .foregroundStyle(.orange)
+                    }
+                }
+            }
+            .navigationTitle("カテゴリーを追加")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("キャンセル") { showAddCategorySheet = false }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("追加") { Task { await addCategory() } }
+                        .bold()
+                        .disabled(newCategoryName.trimmingCharacters(in: .whitespaces).isEmpty)
+                }
+            }
+        }
+        .presentationDetents([.medium])
     }
 
     private var notificationSection: some View {
@@ -173,6 +226,26 @@ struct SettingsView: View {
         }
     }
 
+    // MARK: - Actions
+
+    private func addCategory() async {
+        let trimmed = newCategoryName.trimmingCharacters(in: .whitespaces)
+        guard !trimmed.isEmpty else { return }
+        guard trimmed.count <= 20 else {
+            categoryErrorMessage = "カテゴリー名は20文字以内で入力してください"
+            return
+        }
+        guard categories.count < 5 else {
+            categoryErrorMessage = "カテゴリーは最大5個までです"
+            return
+        }
+        let nextOrder = (categories.map(\.order).max() ?? 0) + 1
+        let category = Category(name: trimmed, order: nextOrder)
+        try? await repository.saveCategory(category)
+        categories = (try? await repository.fetchCategories()) ?? []
+        showAddCategorySheet = false
+    }
+
     private func loadData() async {
         userProfile = try? await repository.fetchUserProfile()
         lifeStages = (try? await repository.fetchLifeStages()) ?? []
@@ -188,6 +261,16 @@ struct SettingsView: View {
         f.locale = Locale(identifier: "ja_JP")
         f.dateStyle = .long
         return f.string(from: date)
+    }
+
+    private func validateLifeStage(name: String, startAge: Int, endAge: Int) -> String? {
+        if name.trimmingCharacters(in: .whitespaces).isEmpty { return "ステージ名を入力してください" }
+        if name.count > 20 { return "ステージ名は20文字以内で入力してください" }
+        if startAge < 0 || startAge > 84 { return "開始年齢は0〜84歳で入力してください" }
+        if endAge <= startAge { return "終了年齢は開始年齢より大きくしてください" }
+        let overlap = lifeStages.first { s in s.startAge < endAge && startAge < s.endAge }
+        if let overlap { return "「\(overlap.name)」と年齢が重複しています" }
+        return nil
     }
 
     private func requestNotificationPermission() {

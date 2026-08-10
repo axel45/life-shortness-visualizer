@@ -27,6 +27,7 @@ struct GridView: View {
                     let columns = max(1, Int(geo.size.width / (dotSize + dotSpacing)))
                     gridCanvas(columns: columns)
                 }
+                .padding(.horizontal, 8)
             }
 
             if viewModel.weekRecordMap.isEmpty {
