@@ -48,11 +48,11 @@ struct WallpaperGuideView: View {
 
                 VStack(spacing: 12) {
                     Button {
-                        if let url = URL(string: "shortcuts://") {
+                        if let url = URL(string: "shortcuts://automations") {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("ショートカットAppを開く")
+                        Text("オートメーションを開く")
                             .font(.headline)
                             .foregroundStyle(.black)
                             .frame(maxWidth: .infinity)
