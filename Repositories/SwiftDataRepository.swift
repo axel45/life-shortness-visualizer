@@ -67,6 +67,11 @@ final class SwiftDataRepository: RepositoryProtocol {
     }
 
     func deleteCategory(_ category: Category) async throws {
+        let categoryId = category.id
+        let ratings = try modelContext.fetch(
+            FetchDescriptor<CategoryRating>(predicate: #Predicate { $0.categoryId == categoryId })
+        )
+        for rating in ratings { modelContext.delete(rating) }
         category.isActive = false
         category.updatedAt = Date()
         try modelContext.save()

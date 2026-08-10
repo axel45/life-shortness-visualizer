@@ -14,6 +14,8 @@ struct SettingsView: View {
     @State private var showAddCategorySheet = false
     @State private var newCategoryName = ""
     @State private var categoryErrorMessage: String? = nil
+    @State private var isEditingCategories = false
+    @State private var categoryToDelete: Category? = nil
 
     var body: some View {
         NavigationStack {
@@ -57,6 +59,26 @@ struct SettingsView: View {
             }
             .sheet(isPresented: $showAddCategorySheet) {
                 addCategorySheet
+            }
+            .alert("カテゴリーを削除", isPresented: Binding(
+                get: { categoryToDelete != nil },
+                set: { if !$0 { categoryToDelete = nil } }
+            )) {
+                Button("削除する", role: .destructive) {
+                    if let cat = categoryToDelete {
+                        Task {
+                            try? await repository.deleteCategory(cat)
+                            categories = (try? await repository.fetchCategories()) ?? []
+                            isEditingCategories = false
+                        }
+                    }
+                    categoryToDelete = nil
+                }
+                Button("キャンセル", role: .cancel) { categoryToDelete = nil }
+            } message: {
+                if let cat = categoryToDelete {
+                    Text("「\(cat.name)」を削除しますか？\nこのカテゴリーの過去の記録データも削除されます。")
+                }
             }
         }
         .task { await loadData() }
@@ -113,18 +135,33 @@ struct SettingsView: View {
     private var categoriesSection: some View {
         Section {
             ForEach(categories) { category in
-                Text(category.name)
+                HStack(spacing: 12) {
+                    if isEditingCategories {
+                        Button {
+                            guard categories.count > 1 else {
+                                categoryErrorMessage = "カテゴリーは最低1個必要です"
+                                return
+                            }
+                            categoryErrorMessage = nil
+                            categoryToDelete = category
+                        } label: {
+                            Image(systemName: "minus.circle.fill")
+                                .foregroundStyle(.red)
+                                .font(.title3)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    Text(category.name)
+                }
             }
             .onDelete { indexSet in
                 guard categories.count > 1 else {
                     categoryErrorMessage = "カテゴリーは最低1個必要です"
                     return
                 }
-                Task {
-                    for i in indexSet {
-                        try? await repository.deleteCategory(categories[i])
-                    }
-                    categories = (try? await repository.fetchCategories()) ?? []
+                if let i = indexSet.first {
+                    categoryErrorMessage = nil
+                    categoryToDelete = categories[i]
                 }
             }
 
@@ -144,9 +181,17 @@ struct SettingsView: View {
                 }
             }
         } header: {
-            Text("カテゴリー（\(categories.count)/5）")
+            HStack {
+                Text("カテゴリー（\(categories.count)/5）")
+                Spacer()
+                Button(isEditingCategories ? "完了" : "編集") {
+                    isEditingCategories.toggle()
+                    categoryErrorMessage = nil
+                }
+                .font(.caption)
+            }
         } footer: {
-            Text("スワイプで削除。最低1個・最大5個。")
+            Text("スワイプまたは編集ボタンで削除。最低1個・最大5個。")
                 .font(.caption)
         }
     }

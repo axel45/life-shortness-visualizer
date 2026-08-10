@@ -87,10 +87,11 @@ struct MainTabView: View {
     @State private var selectedWeekForRecord: Int = 0
     @State private var selectedTab: Int = 0
     @State private var isRecordSheetPresented = false
+    @State private var gridRefreshTrigger: Int = 0
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            GridView(repository: repository, onWeekSelected: { selectedWeekForRecord = $0 })
+            GridView(repository: repository, refreshTrigger: gridRefreshTrigger, onWeekSelected: { selectedWeekForRecord = $0 })
                 .tabItem { Label("人生カレンダー", systemImage: "circle.grid.3x3.fill") }
                 .tag(0)
             Color.clear
@@ -105,11 +106,15 @@ struct MainTabView: View {
         }
         .onChange(of: selectedTab) { _, newTab in
             if newTab == 1 {
-                selectedTab = 0  // stay on calendar tab; show sheet instead
+                selectedTab = 0
                 isRecordSheetPresented = true
+            } else if newTab == 0 {
+                gridRefreshTrigger += 1
             }
         }
-        .sheet(isPresented: $isRecordSheetPresented) {
+        .sheet(isPresented: $isRecordSheetPresented, onDismiss: {
+            gridRefreshTrigger += 1
+        }) {
             WeekDetailSheet(lifeWeekIndex: selectedWeekForRecord, repository: repository)
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
