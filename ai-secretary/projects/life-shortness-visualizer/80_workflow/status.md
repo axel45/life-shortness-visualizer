@@ -138,7 +138,7 @@
 | # | 内容 | 対応条件 | 参照 |
 |---|------|---------|------|
 | B-1 | 壁紙設定ガイドにショートカットApp実画面スクリーンショット（5枚）を追加 | 実機テスト時に撮影後、依頼 | `testflight-feedback_v4.md #7` |
-| B-2 | `shortcuts://automations` URL スキームの動作確認と切り替え | 実機で動作確認後、結果を報告 | `testflight-feedback_v4.md #6` |
+| ~~B-2~~ | ~~`shortcuts://automations` URL スキームの動作確認と切り替え~~ | ✅ 動作確認済み・v1.4.1 実装済み | `testflight-feedback_v4.md #6` |
 
 ---
 

@@ -28,7 +28,9 @@
 - 動作した場合 → `WallpaperGuideView.swift` の「ショートカットを開く」ボタンの URL を `shortcuts://automations` に変更する
 - 動作しない場合 → 現状維持（`shortcuts://`）
 
-→ **実機テストでの確認待ち。動作結果を教えていただければ即実装します。**
+**実機確認結果（2026-08-10）**: `shortcuts://automations` でオートメーション一覧が開くことを確認 ✅
+
+→ `WallpaperGuideView.swift` のボタン URL を `shortcuts://automations` に変更、ボタンラベルも「ショートカットAppを開く」→「オートメーションを開く」に更新。v1.4.1 で実装済み。
 
 ---
 
