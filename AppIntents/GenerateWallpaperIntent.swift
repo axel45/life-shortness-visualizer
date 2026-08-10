@@ -2,6 +2,21 @@ import AppIntents
 import SwiftData
 import UIKit
 
+struct LifeInWeeksShortcuts: AppShortcutsProvider {
+    static var appShortcuts: [AppShortcut] {
+        AppShortcut(
+            intent: GenerateWallpaperIntent(),
+            phrases: [
+                "壁紙を更新",
+                "\(.applicationName)の壁紙を更新",
+                "\(.applicationName)で壁紙を生成"
+            ],
+            shortTitle: "壁紙を更新",
+            systemImageName: "photo.on.rectangle"
+        )
+    }
+}
+
 struct GenerateWallpaperIntent: AppIntent {
     static let title: LocalizedStringResource = "壁紙を生成して保存"
     static let description = IntentDescription("人生グリッドを生成し、写真ライブラリに保存します")
