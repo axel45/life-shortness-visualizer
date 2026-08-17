@@ -38,8 +38,15 @@ jobs:
 
       - name: Set Version
         run: |
-          TAG="${{ github.ref_name }}"
-          VERSION="${TAG#v}"
+          REF="${{ github.ref }}"
+          if [[ "$REF" == refs/tags/v* ]]; then
+            # Tag push: use tag as version (e.g. v1.5.0 → 1.5.0)
+            VERSION="${{ github.ref_name }}"
+            VERSION="${VERSION#v}"
+          else
+            # Branch push: keep existing version in Info.plist, only bump build number
+            VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" SupportingFiles/Info.plist)
+          fi
           /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" SupportingFiles/Info.plist
           /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${{ github.run_number }}" SupportingFiles/Info.plist
           echo "Set version=$VERSION build=${{ github.run_number }}"
