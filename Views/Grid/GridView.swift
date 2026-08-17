@@ -4,14 +4,16 @@ struct GridView: View {
     @State private var viewModel: GridViewModel
     private let repository: RepositoryProtocol
     var refreshTrigger: Int = 0
+    var recordRefreshTrigger: Int = 0
     var onWeekSelected: ((Int) -> Void)?
 
     private let dotSize: CGFloat = 6
     private let dotSpacing: CGFloat = 2
 
-    init(repository: RepositoryProtocol, refreshTrigger: Int = 0, onWeekSelected: ((Int) -> Void)? = nil) {
+    init(repository: RepositoryProtocol, refreshTrigger: Int = 0, recordRefreshTrigger: Int = 0, onWeekSelected: ((Int) -> Void)? = nil) {
         self.repository = repository
         self.refreshTrigger = refreshTrigger
+        self.recordRefreshTrigger = recordRefreshTrigger
         self.onWeekSelected = onWeekSelected
         _viewModel = State(initialValue: GridViewModel(repository: repository))
     }
@@ -45,6 +47,7 @@ struct GridView: View {
         }
         .task { await viewModel.loadData() }
         .onChange(of: refreshTrigger) { _, _ in Task { await viewModel.loadData() } }
+        .onChange(of: recordRefreshTrigger) { _, _ in Task { await viewModel.reloadAfterSave() } }
         .onChange(of: viewModel.selectedLifeWeekIndex) { _, newIndex in
             onWeekSelected?(newIndex)
         }

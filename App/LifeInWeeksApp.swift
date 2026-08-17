@@ -87,11 +87,17 @@ struct MainTabView: View {
     @State private var selectedWeekForRecord: Int = 0
     @State private var selectedTab: Int = 0
     @State private var isRecordSheetPresented = false
-    @State private var gridRefreshTrigger: Int = 0
+    @State private var gridRefreshTrigger: Int = 0     // full reload + reset selection to today
+    @State private var gridRecordRefresh: Int = 0      // reload data only, keep selection
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            GridView(repository: repository, refreshTrigger: gridRefreshTrigger, onWeekSelected: { selectedWeekForRecord = $0 })
+            GridView(
+                repository: repository,
+                refreshTrigger: gridRefreshTrigger,
+                recordRefreshTrigger: gridRecordRefresh,
+                onWeekSelected: { selectedWeekForRecord = $0 }
+            )
                 .tabItem { Label("人生カレンダー", systemImage: "circle.grid.3x3.fill") }
                 .tag(0)
             Color.clear
@@ -104,16 +110,19 @@ struct MainTabView: View {
                 .tabItem { Label("設定", systemImage: "gearshape") }
                 .tag(3)
         }
-        .onChange(of: selectedTab) { _, newTab in
+        .onChange(of: selectedTab) { oldTab, newTab in
             if newTab == 1 {
                 selectedTab = 0
                 isRecordSheetPresented = true
-            } else if newTab == 0 {
+                // Don't increment any trigger — sheet open/close handles refresh
+            } else if newTab == 0 && (oldTab == 2 || oldTab == 3) {
+                // Returning from stats/settings → full reload and reset selection to today
                 gridRefreshTrigger += 1
             }
         }
         .sheet(isPresented: $isRecordSheetPresented, onDismiss: {
-            gridRefreshTrigger += 1
+            // Reload data to reflect saved changes, but keep user's selected week
+            gridRecordRefresh += 1
         }) {
             WeekDetailSheet(lifeWeekIndex: selectedWeekForRecord, repository: repository)
                 .presentationDetents([.medium, .large])
