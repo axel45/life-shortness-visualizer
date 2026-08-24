@@ -46,7 +46,7 @@ struct GridView: View {
             }
         }
         .task { await viewModel.loadData() }
-        .onChange(of: refreshTrigger) { _, _ in Task { await viewModel.loadData() } }
+        .onChange(of: refreshTrigger) { _, _ in Task { await viewModel.loadData(resetSelection: true) } }
         .onChange(of: recordRefreshTrigger) { _, _ in Task { await viewModel.reloadAfterSave() } }
         .onChange(of: viewModel.selectedLifeWeekIndex) { _, newIndex in
             onWeekSelected?(newIndex)

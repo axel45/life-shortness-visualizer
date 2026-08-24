@@ -14,6 +14,7 @@ final class GridViewModel {
     var errorMessage: String? = nil
 
     private let repository: RepositoryProtocol
+    @ObservationIgnored private var hasSetInitialSelection = false
 
     init(repository: RepositoryProtocol) {
         self.repository = repository
@@ -50,12 +51,15 @@ final class GridViewModel {
         }
     }
 
-    func loadData() async {
+    func loadData(resetSelection: Bool = false) async {
         do {
             userProfile = try await repository.fetchUserProfile()
             weekRecords = try await repository.fetchWeekRecords()
             weekRecordMap = Dictionary(uniqueKeysWithValues: weekRecords.map { ($0.lifeWeekIndex, $0) })
-            selectedLifeWeekIndex = currentLifeWeekIndex
+            if !hasSetInitialSelection || resetSelection {
+                selectedLifeWeekIndex = currentLifeWeekIndex
+                hasSetInitialSelection = true
+            }
             checkWallpaperBanner()
         } catch {
             errorMessage = "データの読み込みに失敗しました"
