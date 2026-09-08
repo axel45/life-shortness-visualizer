@@ -9,6 +9,7 @@ final class WeekDetailViewModel {
     var categories: [Category] = []
     var userProfile: UserProfile?
     var errorMessage: String? = nil
+    var cachedRatings: [UUID: Int] = [:]
 
     private let repository: RepositoryProtocol
 
@@ -39,24 +40,12 @@ final class WeekDetailViewModel {
     }
 
     func stars(for category: Category) -> Int {
-        weekRecord?.rating(for: category.id)?.stars ?? 0
+        cachedRatings[category.id] ?? weekRecord?.rating(for: category.id)?.stars ?? 0
     }
 
-    // Optimistic update: reflect in local state immediately for snappy UI
+    // cachedRatings を更新して @Observable の変更検知を即座にトリガーする
     func setStarsOptimistic(_ stars: Int, for category: Category) {
-        if weekRecord == nil {
-            let newRecord = WeekRecord(lifeWeekIndex: lifeWeekIndex)
-            weekRecord = newRecord
-        }
-        guard let record = weekRecord else { return }
-        if let existing = record.rating(for: category.id) {
-            existing.stars = stars
-            existing.updatedAt = Date()
-        } else {
-            let rating = CategoryRating(weekRecordId: record.id, categoryId: category.id, stars: stars)
-            rating.weekRecord = record
-            record.ratings.append(rating)
-        }
+        cachedRatings[category.id] = stars
     }
 
     func setStars(_ stars: Int, for category: Category) async {
@@ -66,7 +55,10 @@ final class WeekDetailViewModel {
                 weekRecord = newRecord
                 try await repository.saveWeekRecord(newRecord)
             }
-            guard let record = weekRecord else { return }
+            guard let record = weekRecord else {
+                cachedRatings.removeValue(forKey: category.id)
+                return
+            }
 
             if let existing = record.rating(for: category.id) {
                 existing.stars = stars
@@ -77,14 +69,11 @@ final class WeekDetailViewModel {
                 record.ratings.append(rating)
             }
             try await repository.saveWeekRecord(record)
-
-            // Reload from DB after save to guarantee SwiftData @Observable tracking
-            // fires correctly even when CategoryRating nested property changes
-            // are not detected by the observation system (5+ consecutive edits).
             weekRecord = try await repository.fetchWeekRecord(lifeWeekIndex: lifeWeekIndex)
-
+            cachedRatings.removeValue(forKey: category.id)
             UINotificationFeedbackGenerator().notificationOccurred(.success)
         } catch {
+            cachedRatings.removeValue(forKey: category.id)
             errorMessage = "記録の保存に失敗しました"
         }
     }

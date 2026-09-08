@@ -85,6 +85,7 @@ enum OnboardingStep {
 struct MainTabView: View {
     let repository: RepositoryProtocol
     @State private var selectedWeekForRecord: Int = 0
+    @State private var currentWeekIndex: Int = 0
     @State private var selectedTab: Int = 0
     @State private var isRecordSheetPresented = false
     @State private var gridRefreshTrigger: Int = 0     // full reload + reset selection to today
@@ -96,7 +97,8 @@ struct MainTabView: View {
                 repository: repository,
                 refreshTrigger: gridRefreshTrigger,
                 recordRefreshTrigger: gridRecordRefresh,
-                onWeekSelected: { selectedWeekForRecord = $0 }
+                onWeekSelected: { selectedWeekForRecord = $0 },
+                onCurrentWeekLoaded: { currentWeekIndex = $0 }
             )
                 .tabItem { Label("人生カレンダー", systemImage: "circle.grid.3x3.fill") }
                 .tag(0)
@@ -113,8 +115,10 @@ struct MainTabView: View {
         .onChange(of: selectedTab) { oldTab, newTab in
             if newTab == 1 {
                 selectedTab = 0
+                if oldTab != 0 && currentWeekIndex > 0 {
+                    selectedWeekForRecord = currentWeekIndex
+                }
                 isRecordSheetPresented = true
-                // Don't increment any trigger — sheet open/close handles refresh
             } else if newTab == 0 && (oldTab == 2 || oldTab == 3) {
                 // Returning from stats/settings → full reload and reset selection to today
                 gridRefreshTrigger += 1
