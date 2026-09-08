@@ -185,6 +185,8 @@ Shogoが `status: approved` に変更するまで次のステップに進まな�
    - **どのプロジェクトでも、Swiftファイルを修正したら必ずcommit＋pushまで行う**
    - pushするとGitHub Actionsが自動でビルド＋TestFlight配信を行う
    - pushを忘れるとTestFlightに反映されない
+   - **push 前に remote が先行していた場合、`.git/hooks/pre-push` が自動で `git merge origin/main` を実行する（手動操作不要）**
+   - コンフリクトが発生した場合のみ push が中断されるので、手動で解消してから再 push すること
 
 **Shogoの判断が必要な場合のみ止まる（それ以外は自律実行）**
 
