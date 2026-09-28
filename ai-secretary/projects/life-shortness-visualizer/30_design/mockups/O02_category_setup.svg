@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="932" viewBox="0 0 430 932">
+  <defs>
+    <style>
+      text { font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- iPhone 15 Pro Frame -->
+  <rect width="430" height="932" rx="55" fill="#1A1A1A"/>
+
+  <!-- Screen Area -->
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#0D0D0D"/>
+
+  <!-- Status Bar -->
+  <text x="50" y="73" font-size="15" font-weight="600" fill="#E8E8E8">9:41</text>
+
+  <!-- Progress Dots: ●●● (all gold) -->
+  <circle cx="203" cy="115" r="4" fill="#FFD700"/>
+  <circle cx="215" cy="115" r="4" fill="#FFD700"/>
+  <circle cx="227" cy="115" r="4" fill="#FFD700"/>
+
+  <!-- Main Copy (left-aligned x=40) -->
+  <text x="40" y="175" font-size="24" font-weight="600" fill="#E8E8E8">毎週振り返りたいことを</text>
+  <text x="40" y="207" font-size="24" font-weight="600" fill="#E8E8E8">決めましょう。</text>
+  <text x="40" y="245" font-size="15" fill="#8E8E93">あとから変更できます。</text>
+
+  <!-- Category List -->
+
+  <!-- Row 1: 運動 (y=290) -->
+  <rect x="40" y="290" width="350" height="56" rx="12" fill="#1C1C1E"/>
+  <text x="64" y="323" font-size="18" fill="#FFD700">✓</text>
+  <text x="92" y="323" font-size="17" fill="#E8E8E8">運動</text>
+  <circle cx="370" cy="318" r="11" fill="#3A3A3A"/>
+  <text x="370" y="323" font-size="16" fill="#8E8E93" text-anchor="middle">−</text>
+
+  <!-- Row 2: 食事 (y=354) -->
+  <rect x="40" y="354" width="350" height="56" rx="12" fill="#1C1C1E"/>
+  <text x="64" y="387" font-size="18" fill="#FFD700">✓</text>
+  <text x="92" y="387" font-size="17" fill="#E8E8E8">食事</text>
+  <circle cx="370" cy="382" r="11" fill="#3A3A3A"/>
+  <text x="370" y="387" font-size="16" fill="#8E8E93" text-anchor="middle">−</text>
+
+  <!-- Row 3: 睡眠 (y=418) -->
+  <rect x="40" y="418" width="350" height="56" rx="12" fill="#1C1C1E"/>
+  <text x="64" y="451" font-size="18" fill="#FFD700">✓</text>
+  <text x="92" y="451" font-size="17" fill="#E8E8E8">睡眠</text>
+  <circle cx="370" cy="446" r="11" fill="#3A3A3A"/>
+  <text x="370" y="451" font-size="16" fill="#8E8E93" text-anchor="middle">−</text>
+
+  <!-- Row 4: 仕事 (y=482) -->
+  <rect x="40" y="482" width="350" height="56" rx="12" fill="#1C1C1E"/>
+  <text x="64" y="515" font-size="18" fill="#FFD700">✓</text>
+  <text x="92" y="515" font-size="17" fill="#E8E8E8">仕事</text>
+  <circle cx="370" cy="510" r="11" fill="#3A3A3A"/>
+  <text x="370" y="515" font-size="16" fill="#8E8E93" text-anchor="middle">−</text>
+
+  <!-- Add Button (y=546, dashed border) -->
+  <rect x="40" y="546" width="350" height="52" rx="12" fill="none" stroke="#333333" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="215" y="577" font-size="15" fill="#8E8E93" text-anchor="middle">＋  カテゴリーを追加（あと1個）</text>
+
+  <!-- Skip text link -->
+  <text x="215" y="720" font-size="15" fill="#8E8E93" text-anchor="middle">スキップ</text>
+
+  <!-- Gold Button -->
+  <rect x="40" y="738" width="350" height="52" rx="26" fill="#FFD700"/>
+  <text x="215" y="770" font-size="17" font-weight="600" fill="#000000" text-anchor="middle">この内容で始める</text>
+
+  <!-- Home Indicator -->
+  <rect x="155" y="898" width="120" height="4" rx="2" fill="#3A3A3A"/>
+</svg>

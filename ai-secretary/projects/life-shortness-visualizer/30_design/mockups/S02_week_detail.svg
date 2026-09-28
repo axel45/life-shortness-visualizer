@@ -1,0 +1,167 @@
+<svg width="430" height="932" viewBox="0 0 430 932" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
+    </style>
+
+    <!-- Past dots: Gold -->
+    <pattern id="pastDots" x="0" y="0" width="7" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4" r="2.8" fill="#FFD700"/>
+    </pattern>
+
+    <!-- Future dots -->
+    <pattern id="futureDots" x="0" y="0" width="7" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4" r="2.8" fill="#0D0D0D" stroke="#3A3A3A" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- iPhone 15 Pro frame -->
+  <rect width="430" height="932" rx="55" fill="#1A1A1A"/>
+
+  <!-- Screen area -->
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#0D0D0D"/>
+
+  <!-- Background: S01 grid (dimmed, opacity=0.3) -->
+  <!-- Life stage bar -->
+  <g opacity="0.3">
+    <rect x="20" y="135" width="12" height="50" fill="#8B9BB4"/>
+    <rect x="20" y="185" width="12" height="50" fill="#7A8FA6"/>
+    <rect x="20" y="235" width="12" height="25" fill="#7A87A6"/>
+    <rect x="20" y="260" width="12" height="24" fill="#8B87A6"/>
+    <rect x="20" y="284" width="12" height="33" fill="#8B7FA6"/>
+    <rect x="20" y="317" width="12" height="42" fill="#D4A017"/>
+    <rect x="20" y="359" width="12" height="41" fill="#FFD700"/>
+    <rect x="20" y="400" width="12" height="67" fill="#DAA520"/>
+    <rect x="20" y="467" width="12" height="207" fill="#8B7355"/>
+    <rect x="20" y="674" width="12" height="141" fill="#696969"/>
+
+    <!-- Grid past rows 0-26 -->
+    <rect x="44" y="135" width="364" height="216" fill="url(#pastDots)"/>
+    <!-- Row 27 partial -->
+    <rect x="44" y="351" width="140" height="8" fill="url(#pastDots)"/>
+    <rect x="191" y="351" width="217" height="8" fill="url(#futureDots)"/>
+    <!-- Future rows 28-84 -->
+    <rect x="44" y="359" width="364" height="456" fill="url(#futureDots)"/>
+
+    <!-- Current week indicator -->
+    <circle cx="187.5" cy="355" r="6.5" fill="#FFD700" opacity="0.2"/>
+    <circle cx="187.5" cy="355" r="4.5" fill="none" stroke="#FFD700" stroke-width="2"/>
+
+    <!-- Header -->
+    <text x="40" y="118" fill="#A8A8A8" font-size="14" font-weight="300" letter-spacing="3">LIFE IN WEEKS</text>
+
+    <!-- Status bar content -->
+    <text x="50" y="73" fill="#E8E8E8" font-size="15" font-weight="600">9:41</text>
+    <rect x="396" y="62" width="22" height="12" rx="2" stroke="#E8E8E8" stroke-width="1.5" fill="none"/>
+    <rect x="398" y="64" width="16" height="8" rx="1" fill="#E8E8E8"/>
+    <rect x="419" y="65" width="2" height="6" rx="1" fill="#E8E8E8"/>
+
+    <!-- Bottom stats bar -->
+    <rect x="20" y="800" width="390" height="20" fill="#0D0D0D"/>
+    <text x="50" y="815" fill="#8E8E93" font-size="12">まだ 58年 ある</text>
+    <text x="185" y="815" fill="#555555" font-size="12">·</text>
+    <text x="200" y="815" fill="#8E8E93" font-size="12">これまでの 31.9%</text>
+
+    <!-- Tab bar (dimmed background) -->
+    <rect x="20" y="820" width="390" height="68" fill="#1C1C1E"/>
+    <line x1="20" y1="820" x2="410" y2="820" stroke="#2A2A2A" stroke-width="0.5"/>
+    <!-- Tab 1 -->
+    <circle cx="81" cy="831" r="2" fill="#FFD700"/>
+    <circle cx="87" cy="831" r="2" fill="#FFD700"/>
+    <circle cx="93" cy="831" r="2" fill="#FFD700"/>
+    <circle cx="99" cy="831" r="2" fill="#FFD700"/>
+    <circle cx="81" cy="837" r="2" fill="#FFD700"/>
+    <circle cx="87" cy="837" r="2" fill="#FFD700"/>
+    <circle cx="93" cy="837" r="2" fill="#FFD700"/>
+    <circle cx="99" cy="837" r="2" fill="#FFD700"/>
+    <circle cx="81" cy="843" r="2" fill="#FFD700"/>
+    <circle cx="87" cy="843" r="2" fill="#FFD700"/>
+    <circle cx="93" cy="843" r="2" fill="#FFD700"/>
+    <circle cx="99" cy="843" r="2" fill="#FFD700"/>
+    <text x="93" y="858" text-anchor="middle" font-size="10" fill="#FFD700">グリッド</text>
+    <!-- Tab 2 -->
+    <rect x="207" y="833" width="4" height="10" fill="#555555"/>
+    <rect x="213" y="829" width="4" height="14" fill="#555555"/>
+    <rect x="219" y="836" width="4" height="7" fill="#555555"/>
+    <text x="215" y="858" text-anchor="middle" font-size="10" fill="#555555">統計</text>
+    <!-- Tab 3 -->
+    <circle cx="337" cy="837" r="6" fill="none" stroke="#555555" stroke-width="2"/>
+    <circle cx="337" cy="837" r="2.5" fill="#555555"/>
+    <text x="337" y="858" text-anchor="middle" font-size="10" fill="#555555">設定</text>
+
+    <!-- FAB -->
+    <circle cx="375" cy="785" r="28" fill="#FFD700"/>
+    <text x="375" y="792" text-anchor="middle" font-size="20" fill="#000000">✎</text>
+  </g>
+
+  <!-- Dark overlay -->
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#000000" opacity="0.6"/>
+
+  <!-- Bottom sheet -->
+  <rect x="20" y="400" width="390" height="488" rx="24" fill="#1C1C1E"/>
+  <!-- Flatten the top corners overlap by layering a rect over top portion -->
+  <rect x="20" y="424" width="390" height="20" fill="#1C1C1E"/>
+
+  <!-- Drag handle -->
+  <rect x="191" y="416" width="48" height="4" rx="2" fill="#3A3A3A"/>
+
+  <!-- Week range -->
+  <text x="40" y="450" font-size="13" fill="#8E8E93">2026年7月27日（月） 〜 8月2日（日）</text>
+
+  <!-- Separator -->
+  <line x1="40" y1="465" x2="410" y2="465" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- Category ratings -->
+
+  <!-- Row 1: 運動 (y=475) -->
+  <text x="40" y="492" font-size="12" fill="#8E8E93">今週の運動はどうでしたか？</text>
+  <!-- Stars: ★★☆☆☆ -->
+  <text x="40" y="515" font-size="24" fill="#FFD700">★</text>
+  <text x="66" y="515" font-size="24" fill="#FFD700">★</text>
+  <text x="92" y="515" font-size="24" fill="#3A3A3A">☆</text>
+  <text x="118" y="515" font-size="24" fill="#3A3A3A">☆</text>
+  <text x="144" y="515" font-size="24" fill="#3A3A3A">☆</text>
+
+  <!-- Row 2: 食事 (y=537) -->
+  <text x="40" y="554" font-size="12" fill="#8E8E93">今週の食事はどうでしたか？</text>
+  <!-- Stars: ★★★★☆ -->
+  <text x="40" y="577" font-size="24" fill="#FFD700">★</text>
+  <text x="66" y="577" font-size="24" fill="#FFD700">★</text>
+  <text x="92" y="577" font-size="24" fill="#FFD700">★</text>
+  <text x="118" y="577" font-size="24" fill="#FFD700">★</text>
+  <text x="144" y="577" font-size="24" fill="#3A3A3A">☆</text>
+
+  <!-- Row 3: 睡眠 (y=599) -->
+  <text x="40" y="616" font-size="12" fill="#8E8E93">今週の睡眠はどうでしたか？</text>
+  <!-- Stars: ★★★☆☆ -->
+  <text x="40" y="639" font-size="24" fill="#FFD700">★</text>
+  <text x="66" y="639" font-size="24" fill="#FFD700">★</text>
+  <text x="92" y="639" font-size="24" fill="#FFD700">★</text>
+  <text x="118" y="639" font-size="24" fill="#3A3A3A">☆</text>
+  <text x="144" y="639" font-size="24" fill="#3A3A3A">☆</text>
+
+  <!-- Row 4: 仕事 (y=661) -->
+  <text x="40" y="678" font-size="12" fill="#8E8E93">今週の仕事はどうでしたか？</text>
+  <!-- Stars: ★★★★★ -->
+  <text x="40" y="701" font-size="24" fill="#FFD700">★</text>
+  <text x="66" y="701" font-size="24" fill="#FFD700">★</text>
+  <text x="92" y="701" font-size="24" fill="#FFD700">★</text>
+  <text x="118" y="701" font-size="24" fill="#FFD700">★</text>
+  <text x="144" y="701" font-size="24" fill="#FFD700">★</text>
+
+  <!-- Separator -->
+  <line x1="40" y1="720" x2="410" y2="720" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- Color preview (y=715) -->
+  <rect x="40" y="730" width="350" height="50" rx="10" fill="#2A2A2A"/>
+  <circle cx="65" cy="755" r="12" fill="#C0C0C0"/>
+  <text x="85" y="752" font-size="13" fill="#C0C0C0">銀</text>
+  <text x="115" y="760" font-size="12" fill="#8E8E93">あと1カテゴリー★5で金になります</text>
+
+  <!-- Save button -->
+  <rect x="40" y="795" width="350" height="52" rx="26" fill="#FFD700"/>
+  <text x="215" y="827" font-size="17" font-weight="600" fill="#000000" text-anchor="middle">保存</text>
+
+  <!-- Home indicator -->
+  <rect x="155" y="898" width="120" height="4" rx="2" fill="#3A3A3A"/>
+</svg>

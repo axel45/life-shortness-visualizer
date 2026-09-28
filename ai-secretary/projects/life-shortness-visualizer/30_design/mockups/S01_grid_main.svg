@@ -1,0 +1,132 @@
+<svg width="430" height="932" viewBox="0 0 430 932" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
+    </style>
+
+    <!-- Past dots: Gold -->
+    <pattern id="pastDots" x="0" y="0" width="7" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4" r="2.8" fill="#FFD700"/>
+    </pattern>
+
+    <!-- Past dots: Silver -->
+    <pattern id="pastDotsSilver" x="0" y="0" width="7" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4" r="2.8" fill="#C0C0C0"/>
+    </pattern>
+
+    <!-- Past dots: White -->
+    <pattern id="pastDotsWhite" x="0" y="0" width="7" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4" r="2.8" fill="#FFFFFF"/>
+    </pattern>
+
+    <!-- Past dots: Gray -->
+    <pattern id="pastDotsGray" x="0" y="0" width="7" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4" r="2.8" fill="#555555"/>
+    </pattern>
+
+    <!-- Future dots -->
+    <pattern id="futureDots" x="0" y="0" width="7" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4" r="2.8" fill="#0D0D0D" stroke="#3A3A3A" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- iPhone 15 Pro frame -->
+  <rect width="430" height="932" rx="55" fill="#1A1A1A"/>
+
+  <!-- Screen area -->
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#0D0D0D"/>
+
+  <!-- Status bar -->
+  <text x="50" y="73" fill="#E8E8E8" font-size="15" font-weight="600">9:41</text>
+  <!-- Battery -->
+  <rect x="396" y="62" width="22" height="12" rx="2" stroke="#E8E8E8" stroke-width="1.5" fill="none"/>
+  <rect x="398" y="64" width="16" height="8" rx="1" fill="#E8E8E8"/>
+  <rect x="419" y="65" width="2" height="6" rx="1" fill="#E8E8E8"/>
+
+  <!-- Header: LIFE IN WEEKS -->
+  <text x="40" y="118" fill="#A8A8A8" font-size="14" font-weight="300" letter-spacing="3">LIFE IN WEEKS</text>
+
+  <!-- Life stage bar (x=20, w=12) -->
+  <rect x="20" y="135" width="12" height="50" fill="#8B9BB4"/>
+  <rect x="20" y="185" width="12" height="50" fill="#7A8FA6"/>
+  <rect x="20" y="235" width="12" height="25" fill="#7A87A6"/>
+  <rect x="20" y="260" width="12" height="24" fill="#8B87A6"/>
+  <rect x="20" y="284" width="12" height="33" fill="#8B7FA6"/>
+  <rect x="20" y="317" width="12" height="42" fill="#D4A017"/>
+  <rect x="20" y="359" width="12" height="41" fill="#FFD700"/>
+  <rect x="20" y="400" width="12" height="67" fill="#DAA520"/>
+  <rect x="20" y="467" width="12" height="207" fill="#8B7355"/>
+  <rect x="20" y="674" width="12" height="146" fill="#696969"/>
+
+  <!-- Age label ticks -->
+  <line x1="32" y1="139" x2="35" y2="139" stroke="#5A5A5A" stroke-width="0.8"/>
+  <line x1="32" y1="321" x2="35" y2="321" stroke="#5A5A5A" stroke-width="0.8"/>
+  <line x1="32" y1="471" x2="35" y2="471" stroke="#5A5A5A" stroke-width="0.8"/>
+  <line x1="32" y1="678" x2="35" y2="678" stroke="#5A5A5A" stroke-width="0.8"/>
+  <line x1="32" y1="812" x2="35" y2="812" stroke="#5A5A5A" stroke-width="0.8"/>
+
+  <!-- Age labels -->
+  <text x="38" y="139" fill="#8E8E93" font-size="9">0</text>
+  <text x="38" y="321" fill="#8E8E93" font-size="9">22</text>
+  <text x="38" y="471" fill="#8E8E93" font-size="9">40</text>
+  <text x="38" y="678" fill="#8E8E93" font-size="9">65</text>
+  <text x="38" y="812" fill="#8E8E93" font-size="9">85</text>
+
+  <!-- Current position marker (age 27, 31.9%) -->
+  <line x1="20" y1="359" x2="32" y2="359" stroke="#FFD700" stroke-width="1"/>
+  <polygon points="32,357 36,359 32,361" fill="#FFD700"/>
+
+  <!-- Grid past dots: rows 0-26 (y=135 to y=135+27*8=351, h=216) -->
+  <rect x="44" y="135" width="364" height="216" fill="url(#pastDots)"/>
+
+  <!-- Row 27 (y=351 to y=359): past cols 0-9 (w=70), current col 10, future cols 11-51
+       人生基準: 1999/06/23生まれ・2026/08/04現在 → lifeWeekIndex=1414 → row=27, col=10 -->
+  <rect x="44" y="351" width="70" height="8" fill="url(#pastDots)"/>
+  <!-- Col 10 gap for current week indicator (x=114 to x=121) -->
+  <rect x="121" y="351" width="287" height="8" fill="url(#futureDots)"/>
+
+  <!-- Rows 28-84: future (y=359 to y=820, h=461) -->
+  <rect x="44" y="359" width="364" height="461" fill="url(#futureDots)"/>
+
+  <!-- Current week indicator (row 27, col 10) -->
+  <!-- x_center = 44 + 10*7 + 3.5 = 117.5, y_center = 135 + 27*8 + 4 = 355 -->
+  <circle cx="117.5" cy="355" r="6.5" fill="#FFD700" opacity="0.2"/>
+  <circle cx="117.5" cy="355" r="4.5" fill="none" stroke="#FFD700" stroke-width="2"/>
+
+  <!-- Tab bar background -->
+  <rect x="20" y="820" width="390" height="68" fill="#1C1C1E"/>
+  <line x1="20" y1="820" x2="410" y2="820" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- Tab 1: グリッド (active, gold) cx=93 -->
+  <circle cx="81" cy="831" r="2" fill="#FFD700"/>
+  <circle cx="87" cy="831" r="2" fill="#FFD700"/>
+  <circle cx="93" cy="831" r="2" fill="#FFD700"/>
+  <circle cx="99" cy="831" r="2" fill="#FFD700"/>
+  <circle cx="81" cy="837" r="2" fill="#FFD700"/>
+  <circle cx="87" cy="837" r="2" fill="#FFD700"/>
+  <circle cx="93" cy="837" r="2" fill="#FFD700"/>
+  <circle cx="99" cy="837" r="2" fill="#FFD700"/>
+  <circle cx="81" cy="843" r="2" fill="#FFD700"/>
+  <circle cx="87" cy="843" r="2" fill="#FFD700"/>
+  <circle cx="93" cy="843" r="2" fill="#FFD700"/>
+  <circle cx="99" cy="843" r="2" fill="#FFD700"/>
+  <text x="93" y="858" text-anchor="middle" font-size="10" fill="#FFD700">グリッド</text>
+
+  <!-- Tab 2: 統計 cx=215 -->
+  <rect x="207" y="833" width="4" height="10" fill="#555555"/>
+  <rect x="213" y="829" width="4" height="14" fill="#555555"/>
+  <rect x="219" y="836" width="4" height="7" fill="#555555"/>
+  <text x="215" y="858" text-anchor="middle" font-size="10" fill="#555555">統計</text>
+
+  <!-- Tab 3: 設定 cx=337 -->
+  <circle cx="337" cy="837" r="6" fill="none" stroke="#555555" stroke-width="2"/>
+  <circle cx="337" cy="837" r="2.5" fill="#555555"/>
+  <text x="337" y="858" text-anchor="middle" font-size="10" fill="#555555">設定</text>
+
+  <!-- FAB button (S02を開くボタン) -->
+  <circle cx="375" cy="785" r="28" fill="#FFD700"/>
+  <text x="375" y="792" text-anchor="middle" font-size="20" fill="#000000">✎</text>
+
+  <!-- Home indicator -->
+  <rect x="155" y="898" width="120" height="4" rx="2" fill="#3A3A3A"/>
+</svg>

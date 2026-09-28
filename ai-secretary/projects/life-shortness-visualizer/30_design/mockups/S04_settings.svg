@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 932" width="430" height="932" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif">
+
+  <!-- iPhone 15 Pro フレーム -->
+  <rect width="430" height="932" rx="55" fill="#1A1A1A"/>
+
+  <!-- 画面エリア -->
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#0D0D0D"/>
+
+  <!-- ステータスバー -->
+  <text x="50" y="73" font-size="15" font-weight="600" fill="#E8E8E8">9:41</text>
+
+  <!-- ナビゲーションタイトル -->
+  <text x="40" y="118" font-size="28" font-weight="700" fill="#E8E8E8">設定</text>
+
+  <!-- ===== セクション1: プロフィール ===== -->
+  <text x="40" y="155" font-size="13" fill="#8E8E93">プロフィール</text>
+
+  <rect x="20" y="163" width="390" height="100" rx="12" fill="#1C1C1E"/>
+
+  <!-- 行1: 生年月日 -->
+  <text x="40" y="192" font-size="17" fill="#E8E8E8">生年月日</text>
+  <text x="380" y="192" font-size="17" fill="#8E8E93" text-anchor="end">1990/04/15</text>
+  <text x="398" y="192" font-size="17" fill="#555555">›</text>
+  <line x1="40" x2="410" y1="213" y2="213" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- 行2: 想定寿命 -->
+  <text x="40" y="242" font-size="17" fill="#E8E8E8">想定寿命</text>
+  <text x="370" y="242" font-size="17" fill="#8E8E93" text-anchor="end">85歳</text>
+  <text x="398" y="242" font-size="17" fill="#555555">›</text>
+
+  <!-- ===== セクション2: カテゴリー管理 ===== -->
+  <text x="40" y="282" font-size="13" fill="#8E8E93">カテゴリー管理</text>
+
+  <rect x="20" y="290" width="390" height="200" rx="12" fill="#1C1C1E"/>
+
+  <!-- 行: 運動 -->
+  <text x="40" y="318" font-size="17" fill="#E8E8E8">運動</text>
+  <text x="398" y="318" font-size="17" fill="#555555" text-anchor="end">›</text>
+  <line x1="40" x2="410" y1="340" y2="340" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- 行: 食事 -->
+  <text x="40" y="368" font-size="17" fill="#E8E8E8">食事</text>
+  <text x="398" y="368" font-size="17" fill="#555555" text-anchor="end">›</text>
+  <line x1="40" x2="410" y1="390" y2="390" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- 行: 睡眠 -->
+  <text x="40" y="418" font-size="17" fill="#E8E8E8">睡眠</text>
+  <text x="398" y="418" font-size="17" fill="#555555" text-anchor="end">›</text>
+  <line x1="40" x2="410" y1="440" y2="440" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- 行: 仕事 -->
+  <text x="40" y="468" font-size="17" fill="#E8E8E8">仕事</text>
+  <text x="398" y="468" font-size="17" fill="#555555" text-anchor="end">›</text>
+
+  <!-- カテゴリー追加 -->
+  <text x="40" y="478" font-size="17" fill="#FFD700">＋ カテゴリーを追加</text>
+
+  <!-- ===== セクション3: ライフステージ管理 ===== -->
+  <text x="40" y="512" font-size="13" fill="#8E8E93">ライフステージ管理</text>
+
+  <rect x="20" y="520" width="390" height="50" rx="12" fill="#1C1C1E"/>
+  <text x="40" y="549" font-size="17" fill="#E8E8E8">ステージを編集</text>
+  <text x="398" y="549" font-size="17" fill="#555555" text-anchor="end">›</text>
+
+  <!-- ===== セクション4: 壁紙の自動更新 ===== -->
+  <text x="40" y="592" font-size="13" fill="#8E8E93">壁紙の自動更新</text>
+
+  <rect x="20" y="600" width="390" height="50" rx="12" fill="#1C1C1E"/>
+  <text x="40" y="629" font-size="17" fill="#E8E8E8">設定ガイドを見る</text>
+  <text x="398" y="629" font-size="17" fill="#555555" text-anchor="end">›</text>
+
+  <!-- ===== セクション5: データ管理 ===== -->
+  <rect x="20" y="670" width="390" height="1" fill="#2A2A2A"/>
+
+  <rect x="20" y="680" width="390" height="50" rx="12" fill="#1C1C1E"/>
+  <text x="40" y="709" font-size="17" fill="#FF453A">すべてのデータを削除</text>
+
+  <!-- ===== タブバー ===== -->
+  <rect x="20" y="820" width="390" height="68" fill="#1C1C1E"/>
+  <line x1="20" x2="410" y1="820" y2="820" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- タブ1: グリッド（グレー） -->
+  <circle cx="84" cy="836" r="2.5" fill="#555555"/>
+  <circle cx="93" cy="836" r="2.5" fill="#555555"/>
+  <circle cx="102" cy="836" r="2.5" fill="#555555"/>
+  <circle cx="84" cy="844" r="2.5" fill="#555555"/>
+  <circle cx="93" cy="844" r="2.5" fill="#555555"/>
+  <circle cx="102" cy="844" r="2.5" fill="#555555"/>
+  <circle cx="84" cy="852" r="2.5" fill="#555555"/>
+  <circle cx="93" cy="852" r="2.5" fill="#555555"/>
+  <circle cx="102" cy="852" r="2.5" fill="#555555"/>
+  <circle cx="84" cy="860" r="2.5" fill="#555555"/>
+  <circle cx="93" cy="860" r="2.5" fill="#555555"/>
+  <circle cx="102" cy="860" r="2.5" fill="#555555"/>
+  <text x="93" y="874" font-size="10" fill="#555555" text-anchor="middle">グリッド</text>
+
+  <!-- タブ2: 統計（グレー） -->
+  <rect x="207" y="850" width="6" height="14" rx="2" fill="#555555"/>
+  <rect x="215" y="842" width="6" height="22" rx="2" fill="#555555"/>
+  <rect x="223" y="836" width="6" height="28" rx="2" fill="#555555"/>
+  <text x="215" y="874" font-size="10" fill="#555555" text-anchor="middle">統計</text>
+
+  <!-- タブ3: 設定（ゴールド・選択中） -->
+  <circle cx="337" cy="848" r="8" fill="none" stroke="#FFD700" stroke-width="2"/>
+  <circle cx="337" cy="848" r="3" fill="#FFD700"/>
+  <rect x="335" y="836" width="4" height="5" rx="1" fill="#FFD700"/>
+  <rect x="335" y="855" width="4" height="5" rx="1" fill="#FFD700"/>
+  <rect x="326" y="846" width="5" height="4" rx="1" fill="#FFD700"/>
+  <rect x="345" y="846" width="5" height="4" rx="1" fill="#FFD700"/>
+  <rect x="328" y="839" width="4" height="4" rx="1" fill="#FFD700" transform="rotate(45 330 841)"/>
+  <rect x="343" y="839" width="4" height="4" rx="1" fill="#FFD700" transform="rotate(-45 345 841)"/>
+  <rect x="328" y="853" width="4" height="4" rx="1" fill="#FFD700" transform="rotate(-45 330 855)"/>
+  <rect x="343" y="853" width="4" height="4" rx="1" fill="#FFD700" transform="rotate(45 345 855)"/>
+  <text x="337" y="874" font-size="10" fill="#FFD700" text-anchor="middle">設定</text>
+
+  <!-- ホームインジケーター -->
+  <rect x="155" y="898" width="120" height="4" rx="2" fill="#3A3A3A"/>
+
+</svg>

@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="932" viewBox="0 0 430 932">
+  <defs>
+    <style>
+      text { font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- iPhone 15 Pro Frame -->
+  <rect width="430" height="932" rx="55" fill="#1A1A1A"/>
+
+  <!-- Screen Area -->
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#0D0D0D"/>
+
+  <!-- Status Bar -->
+  <text x="50" y="73" font-size="15" font-weight="600" fill="#E8E8E8">9:41</text>
+
+  <!-- Progress Dots: ●●○ -->
+  <!-- dot1 (●) -->
+  <circle cx="203" cy="115" r="4" fill="#FFD700"/>
+  <!-- dot2 (●) -->
+  <circle cx="215" cy="115" r="4" fill="#FFD700"/>
+  <!-- dot3 (○) -->
+  <circle cx="227" cy="115" r="4" fill="none" stroke="#555555" stroke-width="1.5"/>
+
+  <!-- Grid Area: x=55 y=140 w=320 h=480 -->
+
+  <!-- Past rows 0-5: grey band -->
+  <rect x="55" y="140" width="320" height="36" fill="#333333"/>
+
+  <!-- Past rows 6-11 -->
+  <rect x="55" y="176" width="320" height="36" fill="#4A4A4A"/>
+
+  <!-- Past rows 12-17: mixed grey and gold -->
+  <rect x="55" y="212" width="256" height="36" fill="#888888"/>
+  <rect x="311" y="212" width="64" height="36" fill="#FFD700"/>
+
+  <!-- Past rows 18-21: silver and gold -->
+  <rect x="55" y="248" width="160" height="24" fill="#C0C0C0"/>
+  <rect x="215" y="248" width="160" height="24" fill="#FFD700"/>
+
+  <!-- Past rows 22-26: gold (working adult) -->
+  <rect x="55" y="272" width="320" height="30" fill="#FFD700"/>
+
+  <!-- Current week row 27 (y=302) -->
+  <!-- Past part of current row -->
+  <rect x="55" y="302" width="120" height="6" fill="#FFD700"/>
+  <!-- Future part of current row -->
+  <rect x="188" y="302" width="187" height="6" fill="#1A1A1A" stroke="#2A2A2A" stroke-width="0.5"/>
+  <!-- Current week circle (glow outer) -->
+  <circle cx="182" cy="305" r="7" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+  <!-- Current week circle -->
+  <circle cx="182" cy="305" r="5" fill="none" stroke="#FFD700" stroke-width="2"/>
+
+  <!-- Current week label -->
+  <text x="200" y="309" font-size="10" fill="#FFD700">&#x2190; 現在</text>
+
+  <!-- Future rows 28-84: dark, almost invisible -->
+  <rect x="55" y="308" width="320" height="312" fill="#0D0D0D"/>
+
+  <!-- Future row lines (5px interval) -->
+  <line x1="55" y1="313" x2="375" y2="313" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="318" x2="375" y2="318" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="323" x2="375" y2="323" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="328" x2="375" y2="328" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="333" x2="375" y2="333" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="338" x2="375" y2="338" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="343" x2="375" y2="343" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="348" x2="375" y2="348" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="353" x2="375" y2="353" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="358" x2="375" y2="358" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="363" x2="375" y2="363" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="368" x2="375" y2="368" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="373" x2="375" y2="373" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="378" x2="375" y2="378" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="383" x2="375" y2="383" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="388" x2="375" y2="388" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="393" x2="375" y2="393" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="398" x2="375" y2="398" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="403" x2="375" y2="403" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="408" x2="375" y2="408" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="413" x2="375" y2="413" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="418" x2="375" y2="418" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="423" x2="375" y2="423" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="428" x2="375" y2="428" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="433" x2="375" y2="433" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="438" x2="375" y2="438" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="443" x2="375" y2="443" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="448" x2="375" y2="448" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="453" x2="375" y2="453" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="458" x2="375" y2="458" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="463" x2="375" y2="463" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="468" x2="375" y2="468" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="473" x2="375" y2="473" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="478" x2="375" y2="478" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="483" x2="375" y2="483" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="488" x2="375" y2="488" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="493" x2="375" y2="493" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="498" x2="375" y2="498" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="503" x2="375" y2="503" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="508" x2="375" y2="508" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="513" x2="375" y2="513" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="518" x2="375" y2="518" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="523" x2="375" y2="523" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="528" x2="375" y2="528" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="533" x2="375" y2="533" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="538" x2="375" y2="538" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="543" x2="375" y2="543" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="548" x2="375" y2="548" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="553" x2="375" y2="553" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="558" x2="375" y2="558" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="563" x2="375" y2="563" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="568" x2="375" y2="568" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="573" x2="375" y2="573" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="578" x2="375" y2="578" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="583" x2="375" y2="583" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="588" x2="375" y2="588" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="593" x2="375" y2="593" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="598" x2="375" y2="598" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="603" x2="375" y2="603" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="608" x2="375" y2="608" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="613" x2="375" y2="613" stroke="#1E1E1E" stroke-width="0.5"/>
+  <line x1="55" y1="618" x2="375" y2="618" stroke="#1E1E1E" stroke-width="0.5"/>
+
+  <!-- Text below grid -->
+  <text x="215" y="660" font-size="15" fill="#8E8E93" text-anchor="middle">あなたの人生は</text>
+  <text x="215" y="685" font-size="28" font-weight="700" fill="#FFD700" text-anchor="middle" font-family="'Courier New', monospace">1,431週目</text>
+  <text x="215" y="715" font-size="15" fill="#8E8E93" text-anchor="middle">を迎えています</text>
+
+  <!-- Gold Button -->
+  <rect x="95" y="760" width="240" height="52" rx="26" fill="#FFD700"/>
+  <text x="215" y="792" font-size="17" font-weight="600" fill="#000000" text-anchor="middle">確認する</text>
+
+  <!-- Home Indicator -->
+  <rect x="155" y="898" width="120" height="4" rx="2" fill="#3A3A3A"/>
+</svg>

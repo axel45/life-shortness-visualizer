@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 932" width="430" height="932">
+
+  <!-- iPhone Frame -->
+  <rect width="430" height="932" rx="55" fill="#1A1A1A"/>
+  <!-- Screen -->
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#0D0D0D"/>
+
+  <!-- Status Bar -->
+  <text x="50" y="73" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="600" fill="#E8E8E8">9:41</text>
+  <!-- Battery icon bars -->
+  <rect x="355" y="63" width="4" height="10" rx="1" fill="#E8E8E8"/>
+  <rect x="361" y="60" width="4" height="13" rx="1" fill="#E8E8E8"/>
+  <rect x="367" y="57" width="4" height="16" rx="1" fill="#E8E8E8"/>
+  <!-- WiFi icon -->
+  <path d="M379 70 Q383 64 387 70" stroke="#E8E8E8" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M376 73 Q383 61 390 73" stroke="#E8E8E8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <circle cx="383" cy="74" r="1.5" fill="#E8E8E8"/>
+  <!-- Battery -->
+  <rect x="396" y="62" width="22" height="12" rx="2" fill="none" stroke="#E8E8E8" stroke-width="1.5"/>
+  <rect x="419" y="65" width="2" height="6" rx="1" fill="#E8E8E8"/>
+  <rect x="398" y="64" width="16" height="8" rx="1" fill="#E8E8E8"/>
+
+  <!-- Decorative Grid (9 cols x 5 rows, r=4, col gap=14px, row gap=14px, top-left x=95 y=220) -->
+  <!-- Row 1: gray, silver, white, gold, silver, white, gray, silver, gold -->
+  <circle cx="95"  cy="220" r="4" fill="#555555"/>
+  <circle cx="109" cy="220" r="4" fill="#C0C0C0"/>
+  <circle cx="123" cy="220" r="4" fill="#FFFFFF"/>
+  <circle cx="137" cy="220" r="4" fill="#FFD700"/>
+  <circle cx="151" cy="220" r="4" fill="#C0C0C0"/>
+  <circle cx="165" cy="220" r="4" fill="#FFFFFF"/>
+  <circle cx="179" cy="220" r="4" fill="#555555"/>
+  <circle cx="193" cy="220" r="4" fill="#C0C0C0"/>
+  <circle cx="207" cy="220" r="4" fill="#FFD700"/>
+  <!-- Row 2: silver, white, gold, gray, silver, gold, white, gray, silver -->
+  <circle cx="95"  cy="234" r="4" fill="#C0C0C0"/>
+  <circle cx="109" cy="234" r="4" fill="#FFFFFF"/>
+  <circle cx="123" cy="234" r="4" fill="#FFD700"/>
+  <circle cx="137" cy="234" r="4" fill="#555555"/>
+  <circle cx="151" cy="234" r="4" fill="#C0C0C0"/>
+  <circle cx="165" cy="234" r="4" fill="#FFD700"/>
+  <circle cx="179" cy="234" r="4" fill="#FFFFFF"/>
+  <circle cx="193" cy="234" r="4" fill="#555555"/>
+  <circle cx="207" cy="234" r="4" fill="#C0C0C0"/>
+  <!-- Row 3: gold, silver, gray, white, gold, silver, gray, white, gold -->
+  <circle cx="95"  cy="248" r="4" fill="#FFD700"/>
+  <circle cx="109" cy="248" r="4" fill="#C0C0C0"/>
+  <circle cx="123" cy="248" r="4" fill="#555555"/>
+  <circle cx="137" cy="248" r="4" fill="#FFFFFF"/>
+  <circle cx="151" cy="248" r="4" fill="#FFD700"/>
+  <circle cx="165" cy="248" r="4" fill="#C0C0C0"/>
+  <circle cx="179" cy="248" r="4" fill="#555555"/>
+  <circle cx="193" cy="248" r="4" fill="#FFFFFF"/>
+  <circle cx="207" cy="248" r="4" fill="#FFD700"/>
+  <!-- Row 4: white, gray, silver, gold, white, gray, silver, gold, white -->
+  <circle cx="95"  cy="262" r="4" fill="#FFFFFF"/>
+  <circle cx="109" cy="262" r="4" fill="#555555"/>
+  <circle cx="123" cy="262" r="4" fill="#C0C0C0"/>
+  <circle cx="137" cy="262" r="4" fill="#FFD700"/>
+  <circle cx="151" cy="262" r="4" fill="#FFFFFF"/>
+  <circle cx="165" cy="262" r="4" fill="#555555"/>
+  <circle cx="179" cy="262" r="4" fill="#C0C0C0"/>
+  <circle cx="193" cy="262" r="4" fill="#FFD700"/>
+  <circle cx="207" cy="262" r="4" fill="#FFFFFF"/>
+  <!-- Row 5: silver, gold, white, gray, silver, gold, white, gray, silver -->
+  <circle cx="95"  cy="276" r="4" fill="#C0C0C0"/>
+  <circle cx="109" cy="276" r="4" fill="#FFD700"/>
+  <circle cx="123" cy="276" r="4" fill="#FFFFFF"/>
+  <circle cx="137" cy="276" r="4" fill="#555555"/>
+  <circle cx="151" cy="276" r="4" fill="#C0C0C0"/>
+  <circle cx="165" cy="276" r="4" fill="#FFD700"/>
+  <circle cx="179" cy="276" r="4" fill="#FFFFFF"/>
+  <circle cx="193" cy="276" r="4" fill="#555555"/>
+  <circle cx="207" cy="276" r="4" fill="#C0C0C0"/>
+
+  <!-- Separator line below grid -->
+  <line x1="60" y1="370" x2="370" y2="370" stroke="#FFD700" stroke-width="1" opacity="0.3"/>
+
+  <!-- Main Copy -->
+  <text x="215" y="410" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="22" fill="#E8E8E8" text-anchor="middle">人生は、4,420個の週で</text>
+  <text x="215" y="440" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="22" fill="#E8E8E8" text-anchor="middle">できている</text>
+
+  <!-- Sub Copy -->
+  <text x="215" y="480" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#8E8E93" text-anchor="middle">あなたはその中の今、ここにいる</text>
+
+  <!-- Gold CTA Button -->
+  <rect x="95" y="760" width="240" height="52" rx="26" fill="#FFD700"/>
+  <text x="215" y="792" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="600" fill="#000000" text-anchor="middle">始める</text>
+
+  <!-- Home Indicator -->
+  <rect x="155" y="898" width="120" height="4" rx="2" fill="#3A3A3A"/>
+
+</svg>

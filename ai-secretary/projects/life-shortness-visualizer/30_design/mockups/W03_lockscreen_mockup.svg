@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 932" width="430" height="932">
+  <defs>
+    <pattern id="pd2" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#FFD700"/>
+    </pattern>
+    <pattern id="ps2" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#C0C0C0"/>
+    </pattern>
+    <pattern id="pw2" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#FFFFFF"/>
+    </pattern>
+    <pattern id="pg2" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#555555"/>
+    </pattern>
+    <pattern id="pf2" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#0D0D0D" stroke="#2A2A2A" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- iPhoneフレーム -->
+  <rect width="430" height="932" rx="55" fill="#1A1A1A"/>
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#0D0D0D"/>
+
+  <!--
+    壁紙グリッド（バーなし版）
+    W01座標系: y=211 がグリッド開始 → SVG座標: y=44+211=255
+    左右マージン: screen_left=20 + 13px = x=33
+    グリッド幅: 364px（52col×7px）
+    グリッド高さ: 510px（85行×6px）→ y=255〜765
+  -->
+
+  <!-- グリッドエリア背景 -->
+  <rect x="33" y="255" width="364" height="510" fill="#0D0D0D"/>
+
+  <!-- 0-5歳（グレー） -->
+  <rect x="33" y="255" width="364" height="36" fill="url(#pg2)"/>
+  <!-- 6-11歳（銀） -->
+  <rect x="33" y="291" width="364" height="36" fill="url(#ps2)"/>
+  <!-- 12-23歳（白） -->
+  <rect x="33" y="327" width="364" height="72" fill="url(#pw2)"/>
+  <!-- 24-26歳（金） -->
+  <rect x="33" y="399" width="364" height="18" fill="url(#pd2)"/>
+  <!-- 現在週（row 27、y=255+27×6=417）
+       人生基準: 1999/06/23生まれ・2026/08/04現在 → lifeWeekIndex=1414 → row=27, col=10
+       col 0-9 past: x=33, w=70
+       col 10 center: cx=33+10×7+3.5=106.5
+       col 11-51 future: x=110, w=287 -->
+  <rect x="33"  y="417" width="70"  height="6" fill="url(#pd2)"/>
+  <circle cx="106.5" cy="420" r="4"   fill="none" stroke="#FFD700" stroke-width="2"/>
+  <circle cx="106.5" cy="420" r="6.5" fill="none" stroke="#FFD700" stroke-width="0.8" opacity="0.4"/>
+  <rect x="110" y="417" width="287" height="6" fill="url(#pf2)"/>
+  <!-- 未来（row 28-84、y=423〜765、57行×6px=342px） -->
+  <rect x="33" y="423" width="364" height="342" fill="url(#pf2)"/>
+
+  <!-- Dynamic Island -->
+  <rect x="168" y="52" width="94" height="34" rx="17" fill="#000000"/>
+
+  <!-- ステータスバー -->
+  <text x="50" y="82" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">9:41</text>
+  <rect x="376" y="71" width="22" height="12" rx="2" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+  <rect x="398" y="74" width="2" height="6" rx="1" fill="#FFFFFF"/>
+  <rect x="378" y="73" width="16" height="8" rx="1" fill="#FFFFFF"/>
+
+  <!-- ロック画面UI（最小サイズ時計 font≈50pt / weight=100） -->
+  <text x="215" y="180" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="50" font-weight="100" fill="#FFFFFF" text-anchor="middle">9:41</text>
+  <text x="215" y="200" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="16" font-weight="300" fill="#FFFFFF" text-anchor="middle">8月4日 月曜日</text>
+
+  <!-- グリッド開始ライン（デザイン確認用点線） -->
+  <line x1="20" y1="255" x2="410" y2="255" stroke="#FFD700" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.3"/>
+
+  <!-- 下部コントロール -->
+  <circle cx="100" cy="840" r="28" fill="#FFFFFF" opacity="0.2"/>
+  <text x="100" y="848" font-size="20" text-anchor="middle" fill="#FFFFFF">&#x26A1;</text>
+  <circle cx="330" cy="840" r="28" fill="#FFFFFF" opacity="0.2"/>
+  <text x="330" y="848" font-size="20" text-anchor="middle" fill="#FFFFFF">&#x2299;</text>
+
+  <!-- ホームインジケーター -->
+  <rect x="175" y="898" width="120" height="4" rx="2" fill="#FFFFFF" opacity="0.5"/>
+</svg>

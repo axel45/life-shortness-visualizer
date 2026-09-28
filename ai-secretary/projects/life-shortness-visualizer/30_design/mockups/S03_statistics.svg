@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 932" width="430" height="932" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif">
+
+  <!-- iPhone 15 Pro フレーム -->
+  <rect width="430" height="932" rx="55" fill="#1A1A1A"/>
+
+  <!-- 画面エリア -->
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#0D0D0D"/>
+
+  <!-- ステータスバー -->
+  <text x="50" y="73" font-size="15" font-weight="600" fill="#E8E8E8">9:41</text>
+
+  <!-- ナビゲーションタイトル -->
+  <text x="40" y="118" font-size="28" font-weight="700" fill="#E8E8E8">統計</text>
+
+  <!-- ===== セクション1: ストリーク ===== -->
+  <rect x="20" y="135" width="390" height="110" fill="#1C1C1E"/>
+
+  <!-- 炎アイコン -->
+  <text x="50" y="175" font-size="28">🔥</text>
+
+  <!-- 連続週数 -->
+  <text x="95" y="180" font-size="48" font-weight="700" fill="#FFD700" font-family="Courier New, monospace">42</text>
+
+  <!-- ストリーク説明 -->
+  <text x="165" y="165" font-size="14" fill="#E8E8E8">週連続達成中</text>
+  <text x="165" y="188" font-size="13" fill="#8E8E93">過去最高: 58週</text>
+  <text x="165" y="210" font-size="12" fill="#FFD700">今週記録すると 43週連続</text>
+
+  <!-- セパレーター -->
+  <line x1="20" x2="410" y1="245" y2="245" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- ===== セクション2: 累計記録 ===== -->
+  <rect x="20" y="245" width="390" height="70" fill="#1C1C1E"/>
+  <text x="40" y="272" font-size="14" fill="#8E8E93">あなたはこれまで</text>
+  <text x="40" y="298" font-size="20" font-weight="600" fill="#E8E8E8">156週間</text>
+  <text x="148" y="298" font-size="14" fill="#8E8E93">の記録を積み上げてきました</text>
+  <!-- 人生消費率 -->
+  <line x1="300" x2="300" y1="255" y2="305" stroke="#2A2A2A" stroke-width="0.5"/>
+  <text x="355" y="272" font-size="11" fill="#8E8E93" text-anchor="middle">人生消費率</text>
+  <text x="355" y="298" font-size="22" font-weight="700" fill="#FFD700" text-anchor="middle">31.9%</text>
+
+  <!-- セパレーター -->
+  <line x1="20" x2="410" y1="315" y2="315" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- ===== セクション3: カテゴリー別達成率グラフ ===== -->
+  <rect x="20" y="315" width="390" height="260" fill="#1C1C1E"/>
+  <text x="40" y="345" font-size="16" font-weight="600" fill="#E8E8E8">カテゴリー別 達成率</text>
+
+  <!-- 期間フィルター -->
+  <rect x="260" y="330" width="130" height="28" rx="14" fill="#2A2A2A"/>
+  <text x="283" y="349" font-size="12" fill="#FFD700">3ヶ月</text>
+  <text x="323" y="349" font-size="12" fill="#555555">6ヶ月</text>
+  <text x="363" y="349" font-size="12" fill="#555555">1年</text>
+
+  <!-- グラフ背景 -->
+  <rect x="40" y="365" width="350" height="190" rx="8" fill="#0D0D0D"/>
+
+  <!-- Y軸 -->
+  <line x1="65" x2="65" y1="370" y2="545" stroke="#2A2A2A" stroke-width="1"/>
+  <!-- X軸 -->
+  <line x1="65" x2="385" y1="545" y2="545" stroke="#2A2A2A" stroke-width="1"/>
+
+  <!-- Y軸ラベル -->
+  <text x="55" y="375" font-size="9" fill="#555555" text-anchor="middle">5★</text>
+  <text x="55" y="455" font-size="9" fill="#555555" text-anchor="middle">3★</text>
+  <text x="55" y="540" font-size="9" fill="#555555" text-anchor="middle">1★</text>
+
+  <!-- X軸ラベル -->
+  <text x="85" y="558" font-size="9" fill="#555555">5/1</text>
+  <text x="145" y="558" font-size="9" fill="#555555">6/1</text>
+  <text x="215" y="558" font-size="9" fill="#555555">7/1</text>
+  <text x="340" y="558" font-size="9" fill="#555555">8/1</text>
+
+  <!-- 折れ線グラフ: 運動（#FFD700） -->
+  <polyline points="75,440 110,420 145,390 180,410 215,380 250,360 285,375 320,350 355,370 375,355"
+            stroke="#FFD700" stroke-width="2" fill="none" stroke-linejoin="round"/>
+
+  <!-- 折れ線グラフ: 食事（#C0C0C0） -->
+  <polyline points="75,460 110,445 145,430 180,445 215,425 250,435 285,415 320,430 355,410 375,425"
+            stroke="#C0C0C0" stroke-width="2" fill="none" stroke-linejoin="round"/>
+
+  <!-- 折れ線グラフ: 睡眠（#8B7FA6） -->
+  <polyline points="75,480 110,475 145,465 180,470 215,455 250,460 285,450 320,445 355,455 375,440"
+            stroke="#8B7FA6" stroke-width="2" fill="none" stroke-linejoin="round"/>
+
+  <!-- 折れ線グラフ: 仕事（#8B9BB4） -->
+  <polyline points="75,490 110,480 145,470 180,485 215,475 250,465 285,480 320,460 355,470 375,450"
+            stroke="#8B9BB4" stroke-width="2" fill="none" stroke-linejoin="round"/>
+
+  <!-- 凡例 -->
+  <circle cx="80" cy="565" r="4" fill="#FFD700"/>
+  <text x="90" y="569" font-size="10" fill="#E8E8E8">運動</text>
+
+  <circle cx="135" cy="565" r="4" fill="#C0C0C0"/>
+  <text x="145" y="569" font-size="10" fill="#E8E8E8">食事</text>
+
+  <circle cx="190" cy="565" r="4" fill="#8B7FA6"/>
+  <text x="200" y="569" font-size="10" fill="#E8E8E8">睡眠</text>
+
+  <circle cx="245" cy="565" r="4" fill="#8B9BB4"/>
+  <text x="255" y="569" font-size="10" fill="#E8E8E8">仕事</text>
+
+  <!-- セパレーター -->
+  <line x1="20" x2="410" y1="580" y2="580" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- ===== セクション4: ライフステージ別達成率 ===== -->
+  <rect x="20" y="580" width="390" height="230" fill="#1C1C1E"/>
+  <text x="40" y="608" font-size="16" font-weight="600" fill="#E8E8E8">ライフステージ別</text>
+
+  <!-- 行1: 小学校 (78%) -->
+  <text x="40" y="638" font-size="13" fill="#7A8FA6">小学校</text>
+  <rect x="110" y="627" width="240" height="14" rx="7" fill="#2A2A2A"/>
+  <rect x="110" y="627" width="187" height="14" rx="7" fill="#7A8FA6"/>
+  <text x="365" y="638" font-size="12" fill="#8E8E93">78%</text>
+
+  <!-- 行2: 中学 (62%) -->
+  <text x="40" y="668" font-size="13" fill="#7A87A6">中学</text>
+  <rect x="110" y="657" width="240" height="14" rx="7" fill="#2A2A2A"/>
+  <rect x="110" y="657" width="149" height="14" rx="7" fill="#7A87A6"/>
+  <text x="365" y="668" font-size="12" fill="#8E8E93">62%</text>
+
+  <!-- 行3: 高校 (70%) -->
+  <text x="40" y="698" font-size="13" fill="#8B87A6">高校</text>
+  <rect x="110" y="687" width="240" height="14" rx="7" fill="#2A2A2A"/>
+  <rect x="110" y="687" width="168" height="14" rx="7" fill="#8B87A6"/>
+  <text x="365" y="698" font-size="12" fill="#8E8E93">70%</text>
+
+  <!-- 行4: 大学 (80%) -->
+  <text x="40" y="728" font-size="13" fill="#8B7FA6">大学</text>
+  <rect x="110" y="717" width="240" height="14" rx="7" fill="#2A2A2A"/>
+  <rect x="110" y="717" width="192" height="14" rx="7" fill="#8B7FA6"/>
+  <text x="365" y="728" font-size="12" fill="#8E8E93">80%</text>
+
+  <!-- 行5: 社会人 (90%) -->
+  <text x="40" y="758" font-size="13" fill="#D4A017">社会人</text>
+  <rect x="110" y="747" width="240" height="14" rx="7" fill="#2A2A2A"/>
+  <rect x="110" y="747" width="216" height="14" rx="7" fill="#D4A017"/>
+  <text x="365" y="758" font-size="12" fill="#8E8E93">90%</text>
+
+  <!-- ===== タブバー ===== -->
+  <rect x="20" y="820" width="390" height="68" fill="#1C1C1E"/>
+  <line x1="20" x2="410" y1="820" y2="820" stroke="#2A2A2A" stroke-width="0.5"/>
+
+  <!-- タブ1: グリッド（グレー） -->
+  <circle cx="84" cy="836" r="2.5" fill="#555555"/>
+  <circle cx="93" cy="836" r="2.5" fill="#555555"/>
+  <circle cx="102" cy="836" r="2.5" fill="#555555"/>
+  <circle cx="84" cy="844" r="2.5" fill="#555555"/>
+  <circle cx="93" cy="844" r="2.5" fill="#555555"/>
+  <circle cx="102" cy="844" r="2.5" fill="#555555"/>
+  <circle cx="84" cy="852" r="2.5" fill="#555555"/>
+  <circle cx="93" cy="852" r="2.5" fill="#555555"/>
+  <circle cx="102" cy="852" r="2.5" fill="#555555"/>
+  <circle cx="84" cy="860" r="2.5" fill="#555555"/>
+  <circle cx="93" cy="860" r="2.5" fill="#555555"/>
+  <circle cx="102" cy="860" r="2.5" fill="#555555"/>
+  <text x="93" y="874" font-size="10" fill="#555555" text-anchor="middle">グリッド</text>
+
+  <!-- タブ2: 統計（ゴールド・選択中） -->
+  <rect x="207" y="850" width="6" height="14" rx="2" fill="#FFD700"/>
+  <rect x="215" y="842" width="6" height="22" rx="2" fill="#FFD700"/>
+  <rect x="223" y="836" width="6" height="28" rx="2" fill="#FFD700"/>
+  <text x="215" y="874" font-size="10" fill="#FFD700" text-anchor="middle">統計</text>
+
+  <!-- タブ3: 設定（グレー） -->
+  <circle cx="337" cy="848" r="8" fill="none" stroke="#555555" stroke-width="2"/>
+  <circle cx="337" cy="848" r="3" fill="#555555"/>
+  <rect x="335" y="836" width="4" height="5" rx="1" fill="#555555"/>
+  <rect x="335" y="855" width="4" height="5" rx="1" fill="#555555"/>
+  <rect x="326" y="846" width="5" height="4" rx="1" fill="#555555"/>
+  <rect x="345" y="846" width="5" height="4" rx="1" fill="#555555"/>
+  <rect x="328" y="839" width="4" height="4" rx="1" fill="#555555" transform="rotate(45 330 841)"/>
+  <rect x="343" y="839" width="4" height="4" rx="1" fill="#555555" transform="rotate(-45 345 841)"/>
+  <rect x="328" y="853" width="4" height="4" rx="1" fill="#555555" transform="rotate(-45 330 855)"/>
+  <rect x="343" y="853" width="4" height="4" rx="1" fill="#555555" transform="rotate(45 345 855)"/>
+  <text x="337" y="874" font-size="10" fill="#555555" text-anchor="middle">設定</text>
+
+  <!-- ホームインジケーター -->
+  <rect x="155" y="898" width="120" height="4" rx="2" fill="#3A3A3A"/>
+
+</svg>

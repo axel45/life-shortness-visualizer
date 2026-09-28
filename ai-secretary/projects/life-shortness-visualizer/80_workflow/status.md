@@ -91,7 +91,7 @@
 | `40_src/ViewModels/GridViewModel.swift` | グリッド画面VM・壁紙バナー判定 |
 | `40_src/ViewModels/WeekDetailViewModel.swift` | 週詳細シートVM・★記録 |
 | `40_src/ViewModels/StatsViewModel.swift` | 統計VM・ストリーク計算 |
-| `40_src/Views/Grid/GridView.swift` | Canvas APIによる4,420点グリッド描画 |
+| `40_src/Views/Grid/GridView.swift` | Canvas APIによる4,160点グリッド描画 |
 | `40_src/Views/Grid/LifeStageBarView.swift` | ライフステージ左バー（Canvas） |
 | `40_src/Views/WeekDetail/WeekDetailSheet.swift` | 週詳細ボトムシート・★評価UI |
 | `40_src/Views/Stats/StatsSheet.swift` | 統計シート・Swift Charts |

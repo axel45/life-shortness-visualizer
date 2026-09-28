@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 820" width="390" height="820">
+  <defs>
+    <pattern id="pd" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#FFD700"/>
+    </pattern>
+    <pattern id="ps" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#C0C0C0"/>
+    </pattern>
+    <pattern id="pw" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#FFFFFF"/>
+    </pattern>
+    <pattern id="pg" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#555555"/>
+    </pattern>
+    <pattern id="pf" x="0" y="0" width="7" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3" r="2" fill="#0D0D0D" stroke="#2A2A2A" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- 背景（純黒） -->
+  <rect width="390" height="820" fill="#0D0D0D"/>
+
+  <!--
+    グリッドレイアウト（バーなし版）
+    - 左右マージン: 13px（52col×7px=364px → 13+364+13=390px）
+    - 上部 y=0〜210: ロック画面時計エリア（純黒）
+    - グリッド: y=211〜720（85行×6px=510px）
+    - 下部 y=721〜820: 純黒パディング
+  -->
+
+  <!-- グリッドエリア背景 -->
+  <rect x="13" y="211" width="364" height="510" fill="#0D0D0D"/>
+
+  <!-- 0-5歳（グレー、row 0-5） -->
+  <rect x="13" y="211" width="364" height="6" fill="url(#pg)"/>
+  <rect x="13" y="217" width="364" height="6" fill="url(#pg)"/>
+  <rect x="13" y="223" width="200" height="6" fill="url(#pg)"/>
+  <rect x="213" y="223" width="164" height="6" fill="url(#ps)"/>
+  <rect x="13"  y="229" width="364" height="6" fill="url(#ps)"/>
+  <rect x="13"  y="235" width="160" height="6" fill="url(#pg)"/>
+  <rect x="173" y="235" width="204" height="6" fill="url(#ps)"/>
+  <rect x="13"  y="241" width="364" height="6" fill="url(#pg)"/>
+
+  <!-- 6-11歳（銀・白混在、row 6-11） -->
+  <rect x="13"  y="247" width="270" height="6" fill="url(#ps)"/>
+  <rect x="283" y="247" width="94"  height="6" fill="url(#pw)"/>
+  <rect x="13"  y="253" width="364" height="6" fill="url(#ps)"/>
+  <rect x="13"  y="259" width="160" height="6" fill="url(#pw)"/>
+  <rect x="173" y="259" width="204" height="6" fill="url(#ps)"/>
+  <rect x="13"  y="265" width="364" height="6" fill="url(#ps)"/>
+  <rect x="13"  y="271" width="310" height="6" fill="url(#pg)"/>
+  <rect x="323" y="271" width="54"  height="6" fill="url(#ps)"/>
+  <rect x="13"  y="277" width="364" height="6" fill="url(#ps)"/>
+
+  <!-- 12-14歳（白・銀、row 12-14） -->
+  <rect x="13"  y="283" width="210" height="6" fill="url(#pw)"/>
+  <rect x="223" y="283" width="154" height="6" fill="url(#ps)"/>
+  <rect x="13"  y="289" width="364" height="6" fill="url(#pw)"/>
+  <rect x="13"  y="295" width="364" height="6" fill="url(#ps)"/>
+
+  <!-- 15-17歳（白・銀、row 15-17） -->
+  <rect x="13"  y="301" width="250" height="6" fill="url(#pw)"/>
+  <rect x="263" y="301" width="114" height="6" fill="url(#ps)"/>
+  <rect x="13"  y="307" width="364" height="6" fill="url(#pw)"/>
+  <rect x="13"  y="313" width="364" height="6" fill="url(#ps)"/>
+
+  <!-- 18-21歳（白→金、row 18-21） -->
+  <rect x="13"  y="319" width="190" height="6" fill="url(#pw)"/>
+  <rect x="203" y="319" width="174" height="6" fill="url(#pd)"/>
+  <rect x="13"  y="325" width="364" height="6" fill="url(#pw)"/>
+  <rect x="13"  y="331" width="260" height="6" fill="url(#pd)"/>
+  <rect x="273" y="331" width="104" height="6" fill="url(#pw)"/>
+  <rect x="13"  y="337" width="364" height="6" fill="url(#pd)"/>
+
+  <!-- 22-26歳（金・銀混在、row 22-26） -->
+  <rect x="13"  y="343" width="310" height="6" fill="url(#pd)"/>
+  <rect x="323" y="343" width="54"  height="6" fill="url(#ps)"/>
+  <rect x="13"  y="349" width="190" height="6" fill="url(#ps)"/>
+  <rect x="203" y="349" width="174" height="6" fill="url(#pd)"/>
+  <rect x="13"  y="355" width="364" height="6" fill="url(#pd)"/>
+  <rect x="13"  y="361" width="270" height="6" fill="url(#pd)"/>
+  <rect x="283" y="361" width="94"  height="6" fill="url(#ps)"/>
+  <rect x="13"  y="367" width="364" height="6" fill="url(#pd)"/>
+
+  <!-- 現在週（row 27、y=211+27×6=373）
+       人生基準: 1999/06/23生まれ・2026/08/04現在 → lifeWeekIndex=1414 → row=27, col=10
+       col 0-9（過去）: x=13, w=70
+       col 10（現在）: cx=13+10×7+3.5=86.5
+       col 11-51（未来）: x=90, w=287 -->
+  <rect x="13" y="373" width="70" height="6" fill="url(#pd)"/>
+  <circle cx="86.5" cy="376" r="4"   fill="none" stroke="#FFD700" stroke-width="2"/>
+  <circle cx="86.5" cy="376" r="6.5" fill="none" stroke="#FFD700" stroke-width="0.8" opacity="0.4"/>
+  <rect x="90" y="373" width="287" height="6" fill="url(#pf)"/>
+
+  <!-- 未来（row 28-84、y=379〜720、57行×6px=342px） -->
+  <rect x="13" y="379" width="364" height="342" fill="url(#pf)"/>
+</svg>

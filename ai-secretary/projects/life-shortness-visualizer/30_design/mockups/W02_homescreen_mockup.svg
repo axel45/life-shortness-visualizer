@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 932" width="430" height="932">
+  <defs>
+    <pattern id="pastDots" x="0" y="0" width="7" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4.5" r="3" fill="#FFD700"/>
+    </pattern>
+    <pattern id="pastDotsSilver" x="0" y="0" width="7" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4.5" r="3" fill="#C0C0C0"/>
+    </pattern>
+    <pattern id="pastDotsWhite" x="0" y="0" width="7" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4.5" r="3" fill="#FFFFFF"/>
+    </pattern>
+    <pattern id="pastDotsGray" x="0" y="0" width="7" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4.5" r="3" fill="#555555"/>
+    </pattern>
+    <pattern id="futureDots" x="0" y="0" width="7" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="4.5" r="3" fill="#0D0D0D" stroke="#2A2A2A" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- iPhoneフレーム本体 -->
+  <rect x="0" y="0" width="430" height="932" rx="55" fill="#1A1A1A"/>
+
+  <!-- サイドボタン（左: 音量） -->
+  <rect x="-3" y="160" width="5" height="40" rx="2.5" fill="#2A2A2A"/>
+  <rect x="-3" y="210" width="5" height="40" rx="2.5" fill="#2A2A2A"/>
+  <!-- サイドボタン（右: 電源） -->
+  <rect x="428" y="180" width="5" height="70" rx="2.5" fill="#2A2A2A"/>
+
+  <!-- 画面背景 -->
+  <rect x="20" y="44" width="390" height="844" rx="47" fill="#0D0D0D"/>
+
+  <clipPath id="screenClip">
+    <rect x="20" y="44" width="390" height="844" rx="47"/>
+  </clipPath>
+
+  <g clip-path="url(#screenClip)">
+    <!--
+      壁紙グリッド（バーなし版）
+      ホーム画面は時計オーバーレイ位置が異なるため、
+      グリッドは y=44（画面上端）からフルブリードで開始。
+      左マージン: 13px → x=20+13=33
+      幅: 52col×7px=364px
+      行高: 9px（ホーム画面は余裕があるため大きめ）
+      85行×9px=765px → y=44〜809
+    -->
+
+    <!-- 過去エリア帯（ゾーン別シンプル表示） -->
+    <!-- グレー帯（0-5歳, 6行×9px=54px） -->
+    <rect x="33" y="44"  width="364" height="54" fill="url(#pastDotsGray)"   opacity="0.7"/>
+    <!-- 銀帯（6-11歳, 54px） -->
+    <rect x="33" y="98"  width="364" height="54" fill="url(#pastDotsSilver)" opacity="0.6"/>
+    <!-- 銀帯続（12-17歳, 54px） -->
+    <rect x="33" y="152" width="364" height="54" fill="url(#pastDotsSilver)" opacity="0.55"/>
+    <!-- 白帯（18-23歳, 54px） -->
+    <rect x="33" y="206" width="364" height="54" fill="url(#pastDotsWhite)"  opacity="0.5"/>
+    <!-- 金帯（24-26歳, 27px） -->
+    <rect x="33" y="260" width="364" height="27" fill="url(#pastDots)"       opacity="0.8"/>
+
+    <!-- 現在週（row 27、y=44+27×9=287）
+         人生基準: 1999/06/23生まれ・2026/08/04現在 → lifeWeekIndex=1414 → row=27, col=10
+         col 0-9 past: x=33, w=70
+         col 10 center: cx=33+10×7+3.5=106.5
+         col 11-51 future: x=110, w=287 -->
+    <rect x="33"  y="287" width="70"  height="9" fill="url(#pastDots)"/>
+    <circle cx="106.5" cy="291.5" r="7"   fill="none" stroke="#FFD700" stroke-width="0.8" opacity="0.4"/>
+    <circle cx="106.5" cy="291.5" r="5"   fill="none" stroke="#FFD700" stroke-width="2"/>
+    <rect x="110" y="287" width="287" height="9" fill="url(#futureDots)"/>
+
+    <!-- 未来エリア（row 28-84、y=296〜809、57行×9px=513px） -->
+    <rect x="33" y="296" width="364" height="513" fill="url(#futureDots)"/>
+
+    <!-- ===== ホーム画面UIオーバーレイ ===== -->
+
+    <!-- ステータスバー -->
+    <text x="70" y="87" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">9:41</text>
+    <rect x="355" y="74" width="28" height="14" rx="3" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <rect x="383" y="79" width="3" height="5" rx="1" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="357" y="76" width="20" height="10" rx="2" fill="#FFFFFF" opacity="0.8"/>
+    <path d="M328 83 Q333 77 338 83" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+    <path d="M323 87 Q333 74 343 87" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+    <circle cx="333" cy="88" r="2" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="307" y="81" width="3" height="7" rx="1" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="312" y="78" width="3" height="10" rx="1" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="317" y="75" width="3" height="13" rx="1" fill="#FFFFFF" opacity="0.8"/>
+
+    <!-- アプリアイコングリッド（4列×4行）
+         iOS ホーム画面: ステータスバー下 y≈110 からアイコン開始、縦ピッチ≈90px -->
+    <!-- 行1 (y=110) -->
+    <rect x="52" y="110" width="60" height="60" rx="14" fill="#1E3A8A"/>
+    <text x="82"  y="182" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">メモ</text>
+    <rect x="132" y="110" width="60" height="60" rx="14" fill="#15803D"/>
+    <text x="162" y="182" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">ヘルス</text>
+    <rect x="212" y="110" width="60" height="60" rx="14" fill="#7C3AED"/>
+    <text x="242" y="182" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">タスク</text>
+    <rect x="292" y="110" width="60" height="60" rx="14" fill="#B45309"/>
+    <text x="322" y="182" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">地図</text>
+
+    <!-- 行2 (y=200) -->
+    <rect x="52" y="200" width="60" height="60" rx="14" fill="#DC2626"/>
+    <text x="82"  y="272" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">動画</text>
+    <rect x="132" y="200" width="60" height="60" rx="14" fill="#0891B2"/>
+    <text x="162" y="272" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">天気</text>
+    <rect x="212" y="200" width="60" height="60" rx="14" fill="#374151"/>
+    <text x="242" y="272" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">設定</text>
+    <rect x="292" y="200" width="60" height="60" rx="14" fill="#9D174D"/>
+    <text x="322" y="272" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">音楽</text>
+
+    <!-- 行3 (y=290) -->
+    <rect x="52" y="290" width="60" height="60" rx="14" fill="#065F46"/>
+    <text x="82"  y="362" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">家計簿</text>
+    <rect x="132" y="290" width="60" height="60" rx="14" fill="#1D4ED8"/>
+    <text x="162" y="362" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">読書</text>
+    <rect x="212" y="290" width="60" height="60" rx="14" fill="#92400E"/>
+    <text x="242" y="362" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">カメラ</text>
+    <rect x="292" y="290" width="60" height="60" rx="14" fill="#4C1D95"/>
+    <text x="322" y="362" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">カレンダー</text>
+
+    <!-- 行4 (y=380) -->
+    <rect x="52" y="380" width="60" height="60" rx="14" fill="#0F766E"/>
+    <text x="82"  y="452" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">マップ</text>
+    <rect x="132" y="380" width="60" height="60" rx="14" fill="#6D28D9"/>
+    <text x="162" y="452" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">ポッドキャスト</text>
+    <rect x="212" y="380" width="60" height="60" rx="14" fill="#BE123C"/>
+    <text x="242" y="452" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">写真</text>
+    <rect x="292" y="380" width="60" height="60" rx="14" fill="#1E40AF"/>
+    <text x="322" y="452" font-family="SF Pro Display,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">株価</text>
+
+    <!-- ページインジケーター（Dock直上） -->
+    <circle cx="205" cy="800" r="3" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="215" cy="800" r="3" fill="#FFFFFF" opacity="0.4"/>
+    <circle cx="225" cy="800" r="3" fill="#FFFFFF" opacity="0.4"/>
+
+    <!-- Dock背景 -->
+    <rect x="40" y="810" width="350" height="80" rx="24" fill="#FFFFFF" opacity="0.15"/>
+
+    <!-- Dockアイコン4つ -->
+    <rect x="60" y="820" width="60" height="60" rx="14" fill="#FF9500"/>
+    <path d="M75 838 Q75 848 85 850 Q95 852 90 845" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+
+    <rect x="140" y="820" width="60" height="60" rx="14" fill="#34C759"/>
+    <rect x="150" y="835" width="40" height="25" rx="8" fill="#FFFFFF" opacity="0.9"/>
+    <path d="M158 865 L155 872 L165 865" fill="#FFFFFF" opacity="0.9"/>
+
+    <rect x="220" y="820" width="60" height="60" rx="14" fill="#007AFF"/>
+    <circle cx="250" cy="850" r="18" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <line x1="250" y1="832" x2="250" y2="838" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <line x1="250" y1="862" x2="250" y2="868" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <line x1="232" y1="850" x2="238" y2="850" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <line x1="262" y1="850" x2="268" y2="850" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <path d="M250 850 L256 843 L252 850 L256 857 Z" fill="#FF3B30"/>
+    <path d="M250 850 L244 857 L248 850 L244 843 Z" fill="#FFFFFF" opacity="0.9"/>
+
+    <!-- Life in Weeks（金）Dockアイコン -->
+    <rect x="300" y="820" width="60" height="60" rx="14" fill="#FFD700"/>
+    <circle cx="315" cy="835" r="3" fill="#000000"/>
+    <circle cx="323" cy="835" r="3" fill="#000000"/>
+    <circle cx="331" cy="835" r="3" fill="#000000"/>
+    <circle cx="315" cy="843" r="3" fill="#000000"/>
+    <circle cx="323" cy="843" r="3" fill="#000000"/>
+    <circle cx="331" cy="843" r="3" fill="#000000"/>
+    <circle cx="315" cy="851" r="3" fill="#000000"/>
+    <circle cx="323" cy="851" r="3" fill="#000000"/>
+    <circle cx="331" cy="851" r="3" fill="#000000"/>
+
+    <!-- ホームインジケーター -->
+    <rect x="175" y="898" width="120" height="4" rx="2" fill="#FFFFFF" opacity="0.4"/>
+  </g>
+
+  <!-- Dynamic Island -->
+  <rect x="168" y="50" width="94" height="30" rx="20" fill="#000000"/>
+</svg>
